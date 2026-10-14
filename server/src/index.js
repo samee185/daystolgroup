@@ -21,8 +21,6 @@ const here = path.dirname(fileURLToPath(import.meta.url))
 const clientDist = path.resolve(here, '../../client/dist')
 const brandDir = path.resolve(here, '../../client/public/brand')
 
-await connectDB()
-
 const app = express()
 app.set('trust proxy', 1) // Hostinger sits behind a proxy; needed for secure cookies and rate limits
 app.disable('x-powered-by')
@@ -45,8 +43,19 @@ app.use('/brand', express.static(brandDir, { maxAge: '7d' }))
 // Styles and the light/dark switch for the admin
 app.use('/admin-ui', express.static(fileURLToPath(new URL('../admin-ui', import.meta.url)), { maxAge: '1h' }))
 
-const { admin, router: adminRouter } = await buildAdmin()
-app.use(admin.options.rootPath, adminRouter)
+// The admin is built in the background after the server starts (bundling its screens can take a minute),
+// so the website answers straight away. Until it's ready, /admin shows a short "starting" page.
+const ADMIN_PATH = '/admin'
+let adminRouter = null
+let adminError = null
+app.use(ADMIN_PATH, (req, res, next) => {
+  if (adminRouter) return adminRouter(req, res, next)
+  res.status(503).set('Retry-After', '20').type('html').send(
+    adminError
+      ? '<p style="font-family:sans-serif">The admin dashboard could not start. Check the server logs.</p>'
+      : '<meta http-equiv="refresh" content="15"><p style="font-family:sans-serif">The admin dashboard is starting. This page refreshes by itself.</p>',
+  )
+})
 
 // ---------- Everything else ----------
 app.use(
@@ -109,6 +118,30 @@ if (fs.existsSync(clientDist)) {
 app.use(errorHandler)
 
 app.listen(env.PORT, () => {
-  console.log(`API ready on http://localhost:${env.PORT}`)
-  console.log(`Admin dashboard on http://localhost:${env.PORT}${admin.options.rootPath}`)
+  console.log(`Server listening on port ${env.PORT}`)
 })
+
+/** Connect to MongoDB, retrying every 15 seconds so a slow or blocked connection doesn't take the site down. */
+async function connectWithRetry() {
+  for (let attempt = 1; ; attempt += 1) {
+    try {
+      await connectDB()
+      return
+    } catch (err) {
+      console.error(`MongoDB connection failed (attempt ${attempt}): ${err.message}`)
+      if (attempt === 1) console.error('If this keeps happening, check MONGODB_URI and that MongoDB Atlas > Network Access allows 0.0.0.0/0.')
+      await new Promise((r) => setTimeout(r, 15_000))
+    }
+  }
+}
+
+connectWithRetry()
+buildAdmin()
+  .then(({ router }) => {
+    adminRouter = router
+    console.log(`Admin dashboard ready at ${ADMIN_PATH}`)
+  })
+  .catch((err) => {
+    adminError = err
+    console.error('Admin dashboard failed to start:', err)
+  })
