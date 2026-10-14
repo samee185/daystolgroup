@@ -17,6 +17,5 @@
   "engines": {
     "node": ">=20.6"
   },
-  "type": "module",
   "main": "server.js"
 }
