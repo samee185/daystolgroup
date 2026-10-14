@@ -1,0 +1,22 @@
+{
+  "name": "daystol",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "dev": "concurrently -n api,web -c yellow,cyan \"npm run dev -w server\" \"npm run dev -w client\"",
+    "build": "npm run build -w client",
+    "start": "node server.js",
+    "seed": "npm run seed -w server --"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "engines": {
+    "node": ">=20.6"
+  },
+  "type": "module",
+  "main": "server.js"
+}

@@ -1,0 +1,156 @@
+@import "tailwindcss";
+@import "./styles/motion.css";
+
+/*
+ * Light and dark mode. Every colour that changes between modes is a CSS variable here;
+ * <html data-theme="light|dark"> picks the set (see lib/theme.js and public/theme-init.js).
+ */
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0D1330;
+  --bg2: #091027;
+  --card: #151C40;
+  --card2: #1D2550;
+  --line: #2A335E;
+  --fg: #F2F4FA;
+  --mist: #B9C0D9;
+  --field: #0D1330;
+  --glass: rgba(21, 28, 64, .78);
+  --ph1: #1D2550;
+  --ph2: #252E5E;
+  --shadow: 0 30px 60px rgba(0, 0, 0, .35);
+  /* Company colours used as text on the page (the fills stay the same in both modes) */
+  --at-power: #FFE52E;
+  --at-innovation: #01AFEE;
+  --at-property: #F0469E;
+  /* Stock and status colours as text on the page */
+  --ok: #3DDC84;
+  --low: #FFE52E;
+  --bad: #FF8A80;
+  /* Night city in the hero */
+  --city-back: #121938;
+  --city-bld: #161D44;
+  --city-off: #222B5A;
+  --beam-a: rgba(1, 175, 238, .28);
+  --beam-b: rgba(235, 38, 143, .24);
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  --bg: #F5F7FC;
+  --bg2: #EAEEF8;
+  --card: #FFFFFF;
+  --card2: #EEF1F9;
+  --line: #DCE1EE;
+  --fg: #0D1330;
+  --mist: #4A5375;
+  --field: #F5F7FC;
+  --glass: rgba(255, 255, 255, .86);
+  --ph1: #E2E7F3;
+  --ph2: #D6DCEC;
+  --shadow: 0 24px 50px rgba(13, 19, 48, .12);
+  --at-power: #8A6D00;
+  --at-innovation: #00739F;
+  --at-property: #C4136F;
+  --ok: #157347;
+  --low: #8A6A00;
+  --bad: #B3261E;
+  --city-back: #DCE2F0;
+  --city-bld: #C3CBE0;
+  --city-off: #A9B3CE;
+  --beam-a: rgba(1, 175, 238, .22);
+  --beam-b: rgba(235, 38, 143, .18);
+}
+
+/* Tailwind colour names. "inline" makes the classes use the variables above directly. */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg2: var(--bg2);
+  --color-card: var(--card);
+  --color-card2: var(--card2);
+  --color-surface: var(--card);
+  --color-line: var(--line);
+  --color-fg: var(--fg);
+  --color-mist: var(--mist);
+  --color-field: var(--field);
+  --color-glass: var(--glass);
+  --color-at-power: var(--at-power);
+  --color-at-innovation: var(--at-innovation);
+  --color-at-property: var(--at-property);
+  --color-ok: var(--ok);
+  --color-low: var(--low);
+  --color-bad: var(--bad);
+}
+
+/* Fixed brand colours (the same in both modes) */
+@theme {
+  --color-midnight: #0D1330;
+  --color-ink-soft: #4A5375;
+  --color-magenta: #EB268F;
+  --color-action: #D4157A;
+  --color-cyan: #01AFEE;
+  --color-spark: #FFE52E;
+  --color-whatsapp: #1FA855;
+  --color-alert: #FF6B6B;
+
+  --font-display: "Unbounded", sans-serif;
+  --font-sans: "Instrument Sans", system-ui, sans-serif;
+}
+
+/* Plain CSS variables used by styles/motion.css */
+:root {
+  --ease-out: cubic-bezier(.2, .9, .2, 1);
+  --brand-midnight: #0D1330;
+  --brand-magenta: #EB268F;
+}
+
+html {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: "Instrument Sans", system-ui, sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  transition: background-color .35s, color .35s;
+}
+
+:focus-visible {
+  outline: 3px solid #01AFEE;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+/* Striped placeholder shown until a real photo is added */
+.ph {
+  background: repeating-linear-gradient(135deg, var(--ph1) 0 14px, var(--ph2) 14px 28px);
+  color: var(--mist);
+}
+
+/* Section headings: one size scale for the whole site */
+.h-section {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+  font-size: clamp(22px, 2.8vw, 38px);
+}
+.eyebrow {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+/* Privacy, Terms and Returns pages */
+.legal p { margin: 0 0 1rem; color: var(--mist); }
+.legal ul { margin: 0 0 1rem; padding-left: 1.25rem; color: var(--mist); }
+.legal li { margin-bottom: .5rem; }
+.legal strong { color: var(--fg); }
+.legal a { color: var(--fg); }
+.legal a:hover { color: #01AFEE; }

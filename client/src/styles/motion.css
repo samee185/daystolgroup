@@ -1,0 +1,159 @@
+/* Motion for the Option A design. Every effect is switched off for visitors who prefer reduced motion. */
+
+/* ---------- Page load ---------- */
+.navin { opacity: 0; transform: translateY(-16px); animation: fade-up .7s var(--ease-out) .05s forwards; }
+.logo-on { opacity: 0; animation: logo-on 1s steps(1, end) .15s forwards; }
+.fade-up { opacity: 0; transform: translateY(24px); animation: fade-up .9s var(--ease-out) forwards; }
+
+/* Headline words rise out of a mask, then get a coloured underline */
+.word { position: relative; display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .1em; margin-bottom: -.1em; }
+.word > .word-text { display: inline-block; transform: translateY(110%) rotate(6deg); transform-origin: left bottom; animation: word-up 1s cubic-bezier(.16, 1, .3, 1) forwards; }
+.word > .underline { position: absolute; left: 0; right: .35em; bottom: .02em; height: .09em; border-radius: .05em; transform: scaleX(0); transform-origin: left; animation: scale-in .6s var(--ease-out) forwards; }
+.glow { animation: flicker-on 1.3s steps(1, end) 1.55s forwards; }
+.pulse { animation: pulse 1.8s ease-in-out infinite; }
+.flash { position: absolute; inset: 0; pointer-events: none; background: #FFF6B0; opacity: 0; animation: flash .7s ease-out 1.9s; }
+.pop-in { opacity: 0; transform: scale(.6); animation: pop-in .7s cubic-bezier(.3, 1.6, .5, 1) forwards; }
+
+/* Light sweep across buttons */
+.shine { position: relative; overflow: hidden; isolation: isolate; }
+.shine::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, .45) 50%, transparent 70%); transform: translateX(-130%); }
+.shine:hover::after { transform: translateX(130%); transition: transform .75s var(--ease-out); }
+.shine-auto::after { animation: sweep 1.1s var(--ease-out) 2.4s; }
+.press { transition: transform .15s ease-out; }
+.press:active { transform: scale(.96); }
+
+/* ---------- Skyline ---------- */
+.win { animation: win-on .01s linear forwards; }
+.win.twinkle { animation: win-on .01s linear forwards, twinkle 7s ease-in-out infinite; }
+.beacon { position: absolute; top: -9px; left: 50%; width: 6px; height: 6px; margin-left: -3px; border-radius: 50%; background: var(--brand-magenta); box-shadow: 0 0 10px var(--brand-magenta); animation: blink 1.6s steps(1, end) infinite; }
+.beam { position: absolute; left: 50%; transform-origin: 50% 100%; opacity: 0; pointer-events: none; clip-path: polygon(47% 100%, 53% 100%, 100% 0, 0 0); }
+.beam-a { background: linear-gradient(to top, var(--beam-a), transparent); animation: fade-in 1.2s ease-out 2.5s forwards, sweep-a 9s ease-in-out 2.5s infinite alternate; }
+.beam-b { background: linear-gradient(to top, var(--beam-b), transparent); animation: fade-in 1.2s ease-out 2.8s forwards, sweep-b 11s ease-in-out 2.8s infinite alternate; }
+
+/* ---------- Cables ---------- */
+.cable { fill: none; stroke-width: 5; stroke-linecap: round; stroke-dasharray: 1000; stroke-dashoffset: 1000; animation: draw 1.5s cubic-bezier(.6, .05, .3, 1) forwards; }
+.flow { fill: none; stroke: #fff; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 36 964; stroke-dashoffset: 1000; opacity: 0; animation: flow 2.6s linear infinite; }
+
+/* ---------- Parallax (values set from pointer position on the hero) ---------- */
+.parallax { transform: translate(calc(var(--mx, 0) * var(--depth, 0) * 1px), calc(var(--my, 0) * var(--depth, 0) * .5px)); transition: transform .8s var(--ease-out); }
+
+/* ---------- Company cards ---------- */
+.power-on { animation: power-on 1.3s var(--ease-out) both; }
+.socket { position: absolute; top: -10px; left: 50%; width: 20px; height: 20px; margin-left: -10px; border-radius: 50%; background: currentColor; border: 4px solid var(--brand-midnight); z-index: 2; animation: socket 2.4s ease-in-out infinite; }
+.tilt { transform-style: preserve-3d; transform: perspective(1100px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) scale(var(--s, 1)); transition: transform .8s var(--ease-out), box-shadow .5s var(--ease-out); }
+.tilt[data-active] { --s: 1.02; transition: transform .12s ease-out, box-shadow .5s var(--ease-out); box-shadow: 0 44px 80px rgba(4, 7, 22, .6); }
+.tilt .glare { position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .4s; background: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), rgba(255, 255, 255, .4), transparent 50%); }
+.tilt[data-active] .glare { opacity: 1; }
+.tilt .lift { transition: transform .6s var(--ease-out); }
+.tilt[data-active] .lift-1 { transform: translateZ(40px); }
+.tilt[data-active] .lift-2 { transform: translateZ(56px); }
+.tilt .arrow { transition: transform .45s var(--ease-out); }
+.tilt[data-active] .arrow { transform: translateX(8px); }
+
+/* Mobile stories */
+.slide .story-text { opacity: 0; transform: translateY(18px); }
+.slide.is-active .story-text { animation: fade-up .6s var(--ease-out) forwards; }
+.slide.is-active .ken-burns { animation: ken-burns 5s ease-out forwards; }
+.progress { animation: grow-x var(--story-ms, 4500ms) linear forwards; }
+
+/* ---------- Scroll reveals ---------- */
+.reveal { animation: rise .9s var(--ease-out) both; }
+@supports (animation-timeline: view()) {
+  .power-on { animation: power-on linear both; animation-timeline: view(); animation-range: entry 0% cover 32%; }
+  .reveal { animation: rise linear both; animation-timeline: view(); animation-range: entry 0% cover 25%; }
+}
+
+/* ---------- Product cards ---------- */
+.product-card { transition: transform .5s var(--ease-out), box-shadow .5s var(--ease-out); }
+.product-card:hover { transform: translateY(-8px); box-shadow: var(--shadow); }
+.product-card .zoom { transition: transform .9s var(--ease-out); }
+.product-card:hover .zoom { transform: scale(1.08); }
+
+/* ---------- 2026 redesign ---------- */
+/* Lines of a headline rise out of a mask */
+.rise-line { display: block; overflow: hidden; padding-bottom: .08em; }
+.rise-line > span { display: inline-block; transform: translateY(105%); animation: word-up .9s cubic-bezier(.16, 1, .3, 1) forwards; }
+.grow-x { transform: scaleX(0); transform-origin: left; animation: scale-in .8s var(--ease-out) forwards; }
+/* Cards lift on hover; photos inside .zoom-host zoom */
+.lift { transition: transform .35s var(--ease-out), box-shadow .35s var(--ease-out); }
+.lift:hover { transform: translateY(-8px); box-shadow: var(--shadow); }
+.zoom-host .zoom { transition: transform .8s var(--ease-out); }
+.zoom-host:hover .zoom { transform: scale(1.06); }
+.nudge { display: inline-block; transition: transform .3s var(--ease-out); }
+a:hover .nudge, button:hover .nudge { transform: translateX(5px); }
+.bob { animation: bob 5s ease-in-out infinite; }
+.spin-slow { animation: spin 30s linear infinite; }
+.ping { position: absolute; inset: 0; border-radius: 999px; animation: ping 1.8s ease-out infinite; }
+.flowline { stroke-dasharray: 10 14; animation: dash 3.2s linear infinite; }
+.marquee { display: flex; width: max-content; animation: marquee 40s linear infinite; }
+.marquee:hover { animation-play-state: paused; }
+.hq-logo { opacity: 0; transform: scale(.6); animation: pop-in .7s cubic-bezier(.3, 1.6, .5, 1) 1.2s forwards; }
+
+/* ---------- Keyframes ---------- */
+@keyframes bob { 0%, 100% { transform: translateY(0) } 50% { transform: translateY(-10px) } }
+@keyframes spin { to { transform: rotate(360deg) } }
+@keyframes ping { 0% { transform: scale(1); opacity: .65 } 100% { transform: scale(2.6); opacity: 0 } }
+@keyframes dash { to { stroke-dashoffset: -240 } }
+@keyframes marquee { to { transform: translateX(-50%) } }
+@keyframes fade-up { to { opacity: 1; transform: none; } }
+@keyframes fade-in { to { opacity: 1; } }
+@keyframes word-up { to { transform: none; } }
+@keyframes scale-in { to { transform: scaleX(1); } }
+@keyframes pop-in { to { opacity: 1; transform: none; } }
+@keyframes logo-on { 0% { opacity: 0 } 10% { opacity: 1 } 18% { opacity: .15 } 30% { opacity: 1 } 38% { opacity: .3 } 50%, 100% { opacity: 1 } }
+@keyframes flicker-on {
+  0% { text-shadow: 0 0 0 transparent } 8% { text-shadow: 0 0 40px rgba(255, 229, 46, .6) } 14% { text-shadow: 0 0 0 transparent }
+  22% { text-shadow: 0 0 44px rgba(255, 229, 46, .65) } 28% { text-shadow: 0 0 0 transparent } 40%, 100% { text-shadow: 0 0 46px rgba(255, 229, 46, .4) }
+}
+@keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(255, 229, 46, .65) } 50% { box-shadow: 0 0 0 9px rgba(255, 229, 46, 0) } }
+@keyframes flash { 0% { opacity: 0 } 15% { opacity: .22 } 100% { opacity: 0 } }
+@keyframes sweep { from { transform: translateX(-130%) } to { transform: translateX(130%) } }
+@keyframes win-on { to { background: var(--c); box-shadow: 0 0 7px var(--c); } }
+@keyframes twinkle { 0%, 45%, 55%, 100% { opacity: 1 } 50% { opacity: .25 } }
+@keyframes blink { 0%, 60% { opacity: 1 } 61%, 100% { opacity: .15 } }
+@keyframes sweep-a { from { transform: rotate(-40deg) } to { transform: rotate(12deg) } }
+@keyframes sweep-b { from { transform: rotate(38deg) } to { transform: rotate(-10deg) } }
+@keyframes draw { to { stroke-dashoffset: 0 } }
+@keyframes flow { 0% { stroke-dashoffset: 1000; opacity: 0 } 6% { opacity: 1 } 94% { opacity: 1 } 100% { stroke-dashoffset: 0; opacity: 0 } }
+@keyframes power-on {
+  0% { opacity: 0; transform: translateY(70px) scale(.95); filter: grayscale(1) brightness(.5) }
+  55% { opacity: 1; transform: none; filter: grayscale(1) brightness(.62) }
+  68% { filter: none } 74% { filter: grayscale(1) brightness(.62) }
+  82%, 100% { opacity: 1; transform: none; filter: none }
+}
+@keyframes socket { 0%, 100% { box-shadow: 0 0 0 0 currentColor } 50% { box-shadow: 0 0 22px 4px currentColor } }
+@keyframes rise { from { opacity: 0; transform: translateY(56px) } to { opacity: 1; transform: none } }
+@keyframes ken-burns { from { transform: scale(1.02) } to { transform: scale(1.14) } }
+@keyframes grow-x { from { width: 0 } to { width: 100% } }
+
+
+/* ---------- About page: the group tree draws its wires, then power pulses along them ---------- */
+.wire { stroke-dasharray: 400; stroke-dashoffset: 400; animation: draw 1s cubic-bezier(.6, 0, .2, 1) forwards; }
+.wire-pulse { stroke-dasharray: 8 16; animation: dash 2.4s linear infinite; }
+
+/* ---------- Phone menu: slides in from the right, close icon turns once ---------- */
+.menu-in { animation: menu-in .45s var(--ease-out) both; }
+.spin-once { animation: spin-once .5s var(--ease-out) both; }
+@keyframes menu-in { from { opacity: 0; transform: translateX(8%) } to { opacity: 1; transform: none } }
+@keyframes spin-once { from { transform: rotate(-90deg) } to { transform: none } }
+
+/* ---------- Order confirmation: ring pops in, tick draws, a ring bursts outwards ---------- */
+.ring-in { animation: ring-in .6s cubic-bezier(.3, 1.5, .5, 1) both; }
+.check-draw { stroke-dasharray: 40; stroke-dashoffset: 40; animation: draw .5s ease-out .45s forwards; }
+.burst { position: absolute; inset: 0; border-radius: 999px; border: 3px solid #3DDC84; animation: burst 1.2s ease-out .3s both; }
+@keyframes ring-in { 0% { transform: scale(.6); opacity: 0 } 60% { transform: scale(1.08); opacity: 1 } 100% { transform: scale(1) } }
+@keyframes burst { from { transform: scale(.4); opacity: .9 } to { transform: scale(2.2); opacity: 0 } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .navin, .logo-on, .fade-up, .pop-in, .power-on, .reveal, .slide .story-text, .hq-logo { opacity: 1; transform: none; filter: none; }
+  .rise-line > span, .grow-x { transform: none; }
+  .check-draw, .wire { stroke-dashoffset: 0; }
+  .burst { display: none; }
+  .word > .word-text, .word > .underline { transform: none; }
+  .win { background: var(--c) !important; }
+  .beam, .flow, .flash { display: none; }
+  .cable { stroke-dashoffset: 0; }
+  .glow { text-shadow: 0 0 46px rgba(255, 229, 46, .4); }
+  .progress { width: 100%; }
+}
