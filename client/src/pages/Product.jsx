@@ -307,17 +307,17 @@ export default function Product() {
           </ol>
         </nav>
 
-        <div className="grid items-start gap-10 lg:grid-cols-[1.05fr_.95fr] lg:gap-12">
+        <div className="grid grid-cols-[minmax(0,1fr)] items-start gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,.95fr)] lg:gap-12">
           <Gallery p={p} />
 
-          <div className="flex flex-col gap-5">
+          <div className="flex min-w-0 flex-col gap-5">
             <span className="fade-up flex flex-wrap gap-2" style={{ animationDelay: '.05s' }}>
               {p.category && <span className="rounded-full bg-spark px-3 py-1.5 text-[13px] font-extrabold text-midnight">{p.category.name}</span>}
               {(p.brand || p.sku) && (
                 <span className="rounded-full border border-line px-3 py-1.5 text-[13px] font-semibold text-mist">{[p.brand, p.sku && `model ${p.sku}`].filter(Boolean).join(', ')}</span>
               )}
             </span>
-            <h1 className="fade-up m-0 font-display text-[23px] font-extrabold leading-[1.15] tracking-[-0.02em] sm:text-[clamp(26px,2.8vw,38px)]" style={{ animationDelay: '.1s' }}>{p.name}</h1>
+            <h1 className="fade-up m-0 break-words font-display text-[23px] font-extrabold leading-[1.15] tracking-[-0.02em] sm:text-[clamp(26px,2.8vw,38px)]" style={{ animationDelay: '.1s' }}>{p.name}</h1>
 
             <div className="fade-up flex flex-wrap items-end gap-3.5" style={{ animationDelay: '.18s' }}>
               {p.quoteOnly ? (
@@ -339,7 +339,7 @@ export default function Product() {
 
             <div className="fade-up" style={{ animationDelay: '.24s' }}><StockMeter p={p} /></div>
 
-            {p.shortDescription && <p className="fade-up m-0 text-base leading-relaxed text-mist sm:text-[17px]" style={{ animationDelay: '.3s' }}>{p.shortDescription}</p>}
+            {p.shortDescription && <p className="fade-up m-0 text-base leading-relaxed text-mist [overflow-wrap:anywhere] sm:text-[17px]" style={{ animationDelay: '.3s' }}>{p.shortDescription}</p>}
 
             {keySpecs.length > 0 && (
               <dl className="fade-up m-0 grid grid-cols-3 gap-2.5" style={{ animationDelay: '.36s' }}>

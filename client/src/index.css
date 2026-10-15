@@ -106,6 +106,9 @@
 }
 
 html {
+  /* Never let one long word or wide element make the page wider than the screen */
+  overflow-x: clip;
+  overflow-wrap: break-word;
   background: var(--bg);
   color: var(--fg);
   font-family: "Instrument Sans", system-ui, sans-serif;
@@ -113,7 +116,7 @@ html {
 }
 
 body {
-  overflow-x: hidden;
+  overflow-x: clip;
   transition: background-color .35s, color .35s;
 }
 

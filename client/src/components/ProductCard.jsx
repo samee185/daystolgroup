@@ -74,7 +74,7 @@ export default function ProductCard({ product: p }) {
 
       <div className="flex flex-1 flex-col gap-2.5 px-2 pb-2">
         {p.category && <span className="text-[13px] font-bold text-mist">{p.category.name}</span>}
-        <Link to={href} className="text-lg font-bold leading-snug text-fg hover:text-cyan">{p.name}</Link>
+        <Link to={href} className="text-lg font-bold leading-snug text-fg [overflow-wrap:anywhere] hover:text-cyan">{p.name}</Link>
         {specs.length > 0 && (
           <span className="flex flex-wrap gap-1.5">
             {specs.map((s) => <span key={s} className="rounded-lg bg-card2 px-2.5 py-1 text-xs font-semibold text-mist">{s}</span>)}
