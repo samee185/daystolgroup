@@ -64,7 +64,7 @@ export default function Hero() {
           </h1>
 
           <p className="fade-up m-0 max-w-[54ch] text-base leading-relaxed text-mist sm:text-lg" style={{ animationDelay: '.8s' }}>
-            The parent company of <strong className="text-fg">Daystol Power Services</strong>, <strong className="text-fg">Daystol Innovation Systems</strong>, <strong className="text-fg">Daystol Properties</strong> and <strong className="text-fg">Daystol Development Concept</strong>: generators, solar and stabilizers; automation, surveillance and ICT; property development and leasing; buildings, roads and general contracts. One team to call.
+            The parent company of <strong className="text-fg">Daystol Power Services</strong>, <strong className="text-fg">Daystol Innovation Systems</strong>, <strong className="text-fg">Daystol Property</strong> and <strong className="text-fg">Daystol Development Concept</strong>: Electrical Engineering. Heavy Duty Generators. Solar Energy. Industrial Stabilizers AVR. Home & Power Automation BMS. Surveillance Camera & ICT. Property Development & Leasing. Constructions and General Contracts. One team to call.
           </p>
 
           <div className="fade-up flex flex-col gap-3 sm:flex-row sm:flex-wrap" style={{ animationDelay: '1s' }}>

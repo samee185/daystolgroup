@@ -34,8 +34,8 @@ export const COMPANIES = [
   },
   {
     id: 'property',
-    company: 'Daystol Properties',
-    legalName: 'Daystol Properties Ltd.',
+    company: 'Daystol Property',
+    legalName: 'Daystol Property Ltd.',
     title: 'Buildings, managed properly.',
     text: 'Property development, sales and leasing, facility management, short-let apartments and real-estate consultancy.',
     cta: 'Property services',
