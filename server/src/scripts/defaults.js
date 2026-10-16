@@ -25,7 +25,7 @@ export const DEFAULT_SERVICES = [
   ['innovation', 'Web solutions', 'Websites and web applications for businesses and organisations.'],
   ['innovation', 'Professional programming services', 'Experienced programmers for your software projects.'],
 
-  // Daystol Properties
+  // Daystol Property
   ['property', 'Property development', 'Residential and commercial property development.'],
   ['property', 'Sales and leasing', 'Buying, selling and letting property with a team that handles the details.'],
   ['property', 'Facility management', 'Day-to-day running and maintenance of buildings and estates.'],

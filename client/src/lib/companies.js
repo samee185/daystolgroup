@@ -70,18 +70,18 @@ export const COMPANIES = [
 export const PROJECT_TAG = {
   power: { label: 'Power Services', bg: '#FFE52E', fg: '#0D1330', enquiry: 'quote' },
   innovation: { label: 'Innovation Systems', bg: '#01AFEE', fg: '#0D1330', enquiry: 'consultation' },
-  property: { label: 'Properties', bg: '#EB268F', fg: '#FFFFFF', enquiry: 'property' },
+  property: { label: 'Property', bg: '#EB268F', fg: '#FFFFFF', enquiry: 'property' },
   construction: { label: 'Development Concept', bg: '#FF7A1A', fg: '#0D1330', enquiry: 'contract' },
 }
 
 export const GROUP_SUMMARY =
-  'Daystol Group Ltd. is the parent company of Daystol Power Services, Daystol Innovation Systems, Daystol Properties and Daystol Development Concept.'
+  'Daystol Group Ltd. is the parent company of Daystol Power Services, Daystol Innovation Systems, Daystol Property and Daystol Development Concept.'
 
 export const NAV = [
   { to: '/', label: 'Home', end: true },
   { to: '/power-solutions', label: 'Power solutions' },
   { to: '/innovation-systems', label: 'Innovation systems' },
-  { to: '/property-services', label: 'Properties' },
+  { to: '/property-services', label: 'Property' },
   { to: '/construction-services', label: 'Construction' },
   { to: '/shop', label: 'Shop' },
   { to: '/projects', label: 'Projects' },

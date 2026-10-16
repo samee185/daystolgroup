@@ -11,7 +11,7 @@ const sections = [
       <>
         <p>
           This website is run by <strong>{POLICY.group}</strong> ({POLICY.rc}), the parent company of Daystol Power Services Ltd.,
-          Daystol Innovation Systems Ltd., Daystol Properties Ltd. and Daystol Development Concept Ltd. ("Daystol", "we", "us"). We are the data controller for the
+          Daystol Innovation Systems Ltd., Daystol Property Ltd. and Daystol Development Concept Ltd. ("Daystol", "we", "us"). We are the data controller for the
           personal data collected through this website.
         </p>
         <p>

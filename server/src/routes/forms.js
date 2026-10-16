@@ -61,7 +61,7 @@ router.post('/enquiries', formLimiter, asyncHandler(async (req, res) => {
       heading: `Thank you, ${data.name}`,
       intro: 'We have received your message and a member of our team will get back to you shortly.',
       rows: [['Reference', reference], ['About', data.topic || typeLabel], ['Your message', data.message]],
-      note: 'Daystol Group: Daystol Power Services, Daystol Innovation Systems, Daystol Properties and Daystol Development Concept.',
+      note: 'Daystol Group: Daystol Power Services, Daystol Innovation Systems, Daystol Property and Daystol Development Concept.',
     })
   })
 }))

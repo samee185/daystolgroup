@@ -22,7 +22,7 @@ const ICON = {
 const COMPANY_LINKS = [
   { to: '/power-solutions', label: 'Power solutions', company: 'Daystol Power Services', text: 'Generators, solar and stabilizers', bg: '#FFE52E', fg: '#0D1330', icon: ICON.bolt },
   { to: '/innovation-systems', label: 'Innovation systems', company: 'Daystol Innovation Systems', text: 'Automation, CCTV, ICT and software', bg: '#01AFEE', fg: '#0D1330', icon: ICON.chip },
-  { to: '/property-services', label: 'Properties', company: 'Daystol Properties', text: 'Development, leasing and short-lets', bg: '#EB268F', fg: '#FFFFFF', icon: ICON.home },
+  { to: '/property-services', label: 'Property', company: 'Daystol Property', text: 'Development, leasing and short-lets', bg: '#EB268F', fg: '#FFFFFF', icon: ICON.home },
   { to: '/construction-services', label: 'Construction', company: 'Daystol Development Concept', text: 'Buildings, roads, boreholes and contracts', bg: '#FF7A1A', fg: '#0D1330', icon: ICON.helmet },
 ]
 

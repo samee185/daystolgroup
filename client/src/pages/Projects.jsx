@@ -9,7 +9,7 @@ const FILTERS = [
   { value: '', label: 'All projects' },
   { value: 'power', label: 'Power Services' },
   { value: 'innovation', label: 'Innovation Systems' },
-  { value: 'property', label: 'Properties' },
+  { value: 'property', label: 'Property' },
   { value: 'construction', label: 'Development Concept' },
 ]
 
@@ -57,7 +57,7 @@ export default function Projects() {
   const category = FILTERS.some((t) => t.value === params.get('category')) ? params.get('category') : ''
   // One request for everything, so the filter chips can show counts
   const { data: all, isPending, isError, refetch } = useProjects()
-  usePageMeta('Projects', 'Projects delivered by Daystol Power Services, Daystol Innovation Systems, Daystol Properties and Daystol Development Concept.')
+  usePageMeta('Projects', 'Power, automation, property and construction projects delivered by the Daystol Group companies in Lagos, Abuja and across Nigeria.')
 
   const projects = (all || []).filter((p) => !category || p.category === category)
   const featured = projects.find((p) => p.featured)
@@ -81,7 +81,7 @@ export default function Projects() {
             <span className="rise-line"><span className="text-at-innovation" style={{ animationDelay: '.25s' }}>across four companies.</span></span>
           </h1>
           <p className="fade-up m-0 max-w-[58ch] text-base leading-relaxed text-mist sm:text-[17px]" style={{ animationDelay: '.4s' }}>
-            Power installations, automation and security systems, property projects and construction works by Daystol Power Services, Daystol Innovation Systems, Daystol Properties and Daystol Development Concept.
+            Power installations, automation and security systems, property projects and construction works by Daystol Power Services, Daystol Innovation Systems, Daystol Property and Daystol Development Concept.
           </p>
           <div className="fade-up -mx-4 flex gap-2 overflow-x-auto px-4 pb-0.5 pt-1.5 sm:mx-0 sm:px-0" role="group" aria-label="Filter projects" style={{ animationDelay: '.5s', scrollbarWidth: 'none' }}>
             {FILTERS.map((f) => {

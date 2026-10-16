@@ -257,7 +257,7 @@ function AudienceBand({ accent }) {
   )
 }
 
-/** Daystol Properties: quick ways in, each opening the property form with the topic chosen */
+/** Daystol Property: quick ways in, each opening the property form with the topic chosen */
 function IntentBand({ accent }) {
   return (
     <section className="mx-auto flex max-w-[1320px] flex-col gap-[30px] px-[18px] pt-[52px] sm:px-7 sm:pt-[88px]">
@@ -334,12 +334,34 @@ function CompanyCta({ config, accent }) {
   )
 }
 
+/** Where the company works. The same line is in the page content the server sends to search engines. */
+function AreasBand({ company, accent }) {
+  return (
+    <section className="pb-6 pt-2" aria-labelledby="areas-heading">
+      <div className="mx-auto flex max-w-[1320px] flex-wrap items-center justify-between gap-4 px-4 sm:px-7">
+        <div className="flex flex-col gap-1">
+          <h2 id="areas-heading" className="m-0 text-lg font-bold">Areas we serve</h2>
+          <p className="m-0 text-[15px] text-mist">{company.company} works with homes, businesses and government in Lagos, Abuja and across Nigeria.</p>
+        </div>
+        <ul className="m-0 flex list-none flex-wrap gap-2 p-0">
+          {['Lagos', 'Abuja', 'Across Nigeria'].map((a) => (
+            <li key={a} className="flex items-center gap-2 rounded-full border border-line bg-card px-3.5 py-2 text-sm font-semibold">
+              <span className="size-2 rounded-full" style={{ background: accent.fill }} aria-hidden="true" />
+              {a}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )
+}
+
 /** One template for the four company pages: Power solutions, Innovation systems, Property services and Construction services. */
 export default function ServicePage({ companyId }) {
   const config = COMPANY_PAGES[companyId]
   const company = COMPANIES.find((c) => c.id === config.company)
   const accent = ACCENT[config.company]
-  usePageMeta(config.title, config.intro)
+  usePageMeta(config.seoTitle, config.seoDescription)
 
   return (
     <>
@@ -355,6 +377,7 @@ export default function ServicePage({ companyId }) {
         title={config.processTitle}
         steps={config.steps.map((s) => ({ ...s, bg: accent.fill, ink: accent.ink }))}
       />
+      <AreasBand company={company} accent={accent} />
       <ProjectsSection category={config.company} title="Related projects" eyebrow={null} accentClass={accent.text} />
       <CompanyCta config={config} accent={accent} />
     </>

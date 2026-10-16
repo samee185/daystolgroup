@@ -8,7 +8,7 @@ import { useIsDesktop } from '../../hooks/useMediaQuery.js'
 const LINES = [
   { text: 'Power & Energy Solutions.', className: 'text-at-power', delay: 0.15 },
   { text: 'Innovative Systems.', className: 'text-at-innovation', delay: 0.3 },
-  { text: 'Property.', className: 'text-at-property', delay: 0.45 },
+  { text: 'Properties.', className: 'text-at-property', delay: 0.45 },
   { text: 'Construction & Infrastructure.', className: 'text-at-construction', delay: 0.6 },
 ]
 
@@ -64,7 +64,7 @@ export default function Hero() {
           </h1>
 
           <p className="fade-up m-0 max-w-[54ch] text-base leading-relaxed text-mist sm:text-lg" style={{ animationDelay: '.8s' }}>
-            The parent company of <strong className="text-fg">Daystol Power Services</strong>, <strong className="text-fg">Daystol Innovation Systems</strong>, <strong className="text-fg">Daystol Property</strong> and <strong className="text-fg">Daystol Development Concept</strong>: Electrical Engineering. Heavy Duty Generators. Solar Energy. Industrial Stabilizers AVR. Home & Power Automation BMS. Surveillance Camera & ICT. Property Development & Leasing. Constructions and General Contracts. One team to call.
+            The parent company of <strong className="text-fg">Daystol Power Services</strong>, <strong className="text-fg">Daystol Innovation Systems</strong>, <strong className="text-fg">Daystol Property</strong> and <strong className="text-fg">Daystol Development Concept</strong>: generators, solar and stabilizers; automation, surveillance and ICT; property development and leasing; buildings, roads and general contracts. One team to call.
           </p>
 
           <div className="fade-up flex flex-col gap-3 sm:flex-row sm:flex-wrap" style={{ animationDelay: '1s' }}>
@@ -90,7 +90,7 @@ export default function Hero() {
           <div className="grid grid-cols-2 grid-rows-[150px_150px] gap-3.5 sm:grid-rows-[200px_200px]">
             <CollageTile to="/power-solutions" photo={PHOTOS.power} tag="Power Services" tagClass="bg-spark text-midnight" />
             <CollageTile to="/innovation-systems" photo={PHOTOS.innovation} tag="Innovation Systems" tagClass="bg-cyan text-midnight" />
-            <CollageTile to="/property-services" photo={PHOTOS.property} tag="Properties" tagClass="bg-magenta text-white" />
+            <CollageTile to="/property-services" photo={PHOTOS.property} tag="Property" tagClass="bg-magenta text-white" />
             <CollageTile to="/construction-services" photo={PHOTOS.construction} tag="Development Concept" tagClass="bg-orange text-midnight" />
           </div>
 

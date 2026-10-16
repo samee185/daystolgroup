@@ -7,7 +7,7 @@ export const COMPANIES = ['power', 'innovation', 'property', 'construction']
 export const COMPANY_LABELS = [
   { value: 'power', label: 'Daystol Power Services' },
   { value: 'innovation', label: 'Daystol Innovation Systems' },
-  { value: 'property', label: 'Daystol Properties' },
+  { value: 'property', label: 'Daystol Property' },
   { value: 'construction', label: 'Daystol Development Concept' },
 ]
 

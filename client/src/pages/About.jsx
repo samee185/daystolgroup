@@ -20,8 +20,8 @@ const COMPANIES = [
     chips: ['Automation', 'Surveillance', 'ICT', 'Software', 'Web'],
   },
   {
-    no: '03', color: '#EB268F', ink: '#FFFFFF', to: '/property-services', short: 'Properties', photo: PHOTOS.property,
-    name: 'Daystol Properties Ltd.',
+    no: '03', color: '#EB268F', ink: '#FFFFFF', to: '/property-services', short: 'Property', photo: PHOTOS.property,
+    name: 'Daystol Property Ltd.',
     text: 'Property development, sales and leasing, facility management, short-let apartments and real-estate consultancy.',
     chips: ['Development', 'Sales and leasing', 'Facility management', 'Short-lets', 'Consultancy'],
   },
@@ -52,7 +52,7 @@ const WIRES = [
 const NODES = [
   { left: '12.5%', label: ['Power', 'Services'], bg: '#FFE52E', fg: '#0D1330', delay: 1.3 },
   { left: '37.5%', label: ['Innovation', 'Systems'], bg: '#01AFEE', fg: '#0D1330', delay: 1.45 },
-  { left: '62.5%', label: ['Properties'], bg: '#EB268F', fg: '#FFFFFF', delay: 1.6 },
+  { left: '62.5%', label: ['Property'], bg: '#EB268F', fg: '#FFFFFF', delay: 1.6 },
   { left: '87.5%', label: ['Development', 'Concept'], bg: '#FF7A1A', fg: '#0D1330', delay: 1.75 },
 ]
 
@@ -111,7 +111,7 @@ function Team() {
 
 export default function About() {
   const { data: s } = useSettings()
-  usePageMeta('About us', 'Daystol Group Ltd. (RC 9511880) is the parent company of Daystol Power Services, Daystol Innovation Systems, Daystol Properties and Daystol Development Concept.')
+  usePageMeta('About Daystol Group', 'Daystol Group Ltd. (RC 9511880) is the parent company of Daystol Power Services, Innovation Systems, Property and Development Concept.')
 
   return (
     <>
@@ -133,7 +133,7 @@ export default function About() {
               <span className="rise-line"><span className="text-at-innovation" style={{ animationDelay: '.4s' }}>companies.</span></span>
             </h1>
             <p className="fade-up m-0 max-w-[54ch] text-base leading-relaxed text-mist sm:text-[17px]" style={{ animationDelay: '.55s' }}>
-              Daystol Group Ltd. is the parent company of Daystol Power Services, Daystol Innovation Systems, Daystol Properties and Daystol Development Concept. Together we cover power and energy, electrical and smart systems, property, and construction and infrastructure, so clients deal with one team from start to finish.
+              Daystol Group Ltd. is the parent company of Daystol Power Services, Daystol Innovation Systems, Daystol Property and Daystol Development Concept. Together we cover power and energy, electrical and smart systems, property, and construction and infrastructure, so clients deal with one team from start to finish.
             </p>
           </div>
           <GroupTree />
@@ -211,7 +211,7 @@ export default function About() {
             </div>
             <div className="flex flex-col gap-1">
               <dt className="text-[13px] text-mist">Subsidiaries</dt>
-              <dd className="m-0 flex flex-col gap-1"><strong>Daystol Power Services Ltd.</strong><strong>Daystol Innovation Systems Ltd.</strong><strong>Daystol Properties Ltd.</strong><strong>Daystol Development Concept Ltd.</strong></dd>
+              <dd className="m-0 flex flex-col gap-1"><strong>Daystol Power Services Ltd.</strong><strong>Daystol Innovation Systems Ltd.</strong><strong>Daystol Property Ltd.</strong><strong>Daystol Development Concept Ltd.</strong></dd>
             </div>
             {(s?.address || s?.officeHours) && (
               <div className="flex flex-col gap-1">

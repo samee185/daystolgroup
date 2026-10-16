@@ -23,7 +23,7 @@ const CARDS = [
     chips: ['Home automation', 'Power automation', 'CCTV and surveillance', 'ICT installations', 'Software and web'],
   },
   {
-    id: 'property', no: '03', name: 'Properties', legal: 'Daystol Properties Ltd.', to: '/property-services', cta: 'Explore properties',
+    id: 'property', no: '03', name: 'Property', legal: 'Daystol Property Ltd.', to: '/property-services', cta: 'Explore properties',
     color: '#EB268F', ink: '#FFFFFF', text: 'text-at-property', photo: PHOTOS.property,
     blurb: 'Property development, sales and leasing, facility management, short-let apartments and real-estate consultancy, from first viewing to day-to-day upkeep.',
     chips: ['Development', 'Sales and leasing', 'Facility management', 'Short-lets', 'Consultancy'],

@@ -25,7 +25,7 @@ const TYPES = [
   { value: 'general', label: 'General enquiry', who: 'Daystol Group', color: null, icon: ICON.chat, hint: 'Tell us what you need' },
   { value: 'quote', label: 'Request a quote', who: 'Power Services', color: '#FFE52E', ink: '#0D1330', icon: ICON.bolt, hint: 'What do you want to power, and where?' },
   { value: 'consultation', label: 'Consultation', who: 'Innovation Systems', color: '#01AFEE', ink: '#0D1330', icon: ICON.chip, hint: 'What would you like to automate, secure or build?' },
-  { value: 'property', label: 'Property enquiry', who: 'Properties', color: '#EB268F', ink: '#FFFFFF', icon: ICON.home, hint: 'Location, budget and anything else we should know' },
+  { value: 'property', label: 'Property enquiry', who: 'Property', color: '#EB268F', ink: '#FFFFFF', icon: ICON.home, hint: 'Location, budget and anything else we should know' },
   { value: 'contract', label: 'Contract enquiry', who: 'Development Concept', color: '#FF7A1A', ink: '#0D1330', icon: ICON.helmet, hint: 'What do you need built, where, and by when?' },
   { value: 'pmc', label: 'Maintenance contract', who: 'Support team', color: '#FFE52E', ink: '#0D1330', icon: ICON.cal, hint: 'What equipment do you have, and where is it?' },
 ]
@@ -44,7 +44,7 @@ const CONTACT_METHODS = [
 const COMPANIES = [
   { name: 'Daystol Power Services', text: 'Generators, solar and stabilizers; electrical installations; power solution management and mechanical engineering.', color: '#FFE52E', ink: '#0D1330', cta: 'Request a quote', type: 'quote' },
   { name: 'Daystol Innovation Systems', text: 'Electrical design, power and home automation, surveillance, ICT, software and web solutions.', color: '#01AFEE', ink: '#0D1330', cta: 'Book a consultation', type: 'consultation' },
-  { name: 'Daystol Properties', text: 'Property development, sales and leasing, facility management, short-lets and real-estate consultancy.', color: '#EB268F', ink: '#FFFFFF', cta: 'Make a property enquiry', type: 'property' },
+  { name: 'Daystol Property', text: 'Property development, sales and leasing, facility management, short-lets and real-estate consultancy.', color: '#EB268F', ink: '#FFFFFF', cta: 'Make a property enquiry', type: 'property' },
   { name: 'Daystol Development Concept', text: 'General contracts: buildings, infrastructure, roads and bridges, boreholes and water supply, schools and networks.', color: '#FF7A1A', ink: '#0D1330', cta: 'Make a contract enquiry', type: 'contract' },
 ]
 
@@ -218,7 +218,7 @@ export default function Contact() {
   const [errors, setErrors] = useState({})
   const [startedAt] = useState(() => Date.now())
 
-  usePageMeta('Contact us', 'Contact Daystol Group for quotes, consultations, property enquiries, construction contracts and maintenance contracts.')
+  usePageMeta('Contact Daystol Group', 'Contact Daystol Group for quotes, consultations, property and contract enquiries, and maintenance contracts in Lagos, Abuja and across Nigeria.')
 
   const { data: product } = useProduct(type === 'quote' ? productSlug : '')
   const { data: project } = useProject(projectSlug)

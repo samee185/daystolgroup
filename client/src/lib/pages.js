@@ -10,6 +10,9 @@ export const COMPANY_PAGES = {
     company: 'power',
     companyName: 'Daystol Power Services Ltd.',
     title: 'Power solutions',
+    // Browser title and search description; keep in step with server/src/lib/seo.js
+    seoTitle: 'Daystol Power Services | Generators, Solar and Stabilizers in Lagos',
+    seoDescription: 'Diesel generators, solar power systems and servo stabilizers: sales, installation and maintenance by Daystol Power Services in Lagos, Abuja and across Nigeria.',
     h1: ['Reliable power,', 'installed and maintained.'],
     intro: 'Power solution management, electrical installations and mechanical engineering, plus sales, installation and maintenance of diesel generators, solar power systems and servo central industrial stabilizers.',
     primary: { label: 'Shop power equipment', to: '/shop' },
@@ -32,6 +35,9 @@ export const COMPANY_PAGES = {
     company: 'innovation',
     companyName: 'Daystol Innovation Systems Ltd.',
     title: 'Innovation systems',
+    // Browser title and search description; keep in step with server/src/lib/seo.js
+    seoTitle: 'Daystol Innovation Systems | Automation, CCTV and ICT in Lagos',
+    seoDescription: 'Home and power automation, CCTV, electrical design, ICT, software and web solutions by Daystol Innovation Systems in Lagos, Abuja and across Nigeria.',
     h1: ['Smart systems that', 'run, watch and connect.'],
     intro: 'Electrical design and installation, power and home automation, surveillance systems, and ICT services: ICT installations, software engineering, web solutions and professional programming.',
     primary: { label: 'Request a consultation', to: '/contact?type=consultation' },
@@ -52,8 +58,11 @@ export const COMPANY_PAGES = {
   },
   property: {
     company: 'property',
-    companyName: 'Daystol Properties Ltd.',
+    companyName: 'Daystol Property Ltd.',
     title: 'Property services',
+    // Browser title and search description; keep in step with server/src/lib/seo.js
+    seoTitle: 'Daystol Property | Property Development and Short-lets in Lagos',
+    seoDescription: 'Property development, sales and leasing, facility management, short-lets and real-estate consultancy by Daystol Property in Lagos, Abuja and Nigeria.',
     h1: ['Property, developed', 'and well looked after.'],
     intro: 'Property development, sales and leasing, facility management, short-let apartments and real-estate consultancy.',
     primary: { label: 'Make a property enquiry', to: '/contact?type=property' },
@@ -76,6 +85,9 @@ export const COMPANY_PAGES = {
     company: 'construction',
     companyName: 'Daystol Development Concept Ltd.',
     title: 'Construction and contracts',
+    // Browser title and search description; keep in step with server/src/lib/seo.js
+    seoTitle: 'Daystol Development Concept | Construction and Contracts in Nigeria',
+    seoDescription: 'General contractor for buildings, roads and bridges, boreholes, schools, networks and infrastructure in Lagos, Abuja and across Nigeria.',
     h1: ['Buildings, roads and infrastructure,', 'delivered as one contract.'],
     intro: 'General contractor for buildings, infrastructure, roads and bridges, boreholes and water supply, schools, networks and other general contracts, for private clients, businesses and government.',
     primary: { label: 'Make a contract enquiry', to: '/contact?type=contract' },
@@ -113,7 +125,7 @@ export const AUDIENCES = [
   { title: 'Estates', photo: 'estates', items: ['Estate CCTV', 'Electrical design', 'Power automation'] },
 ]
 
-/** Daystol Properties: quick starts. `topic` matches an option on the Contact page's property form. */
+/** Daystol Property: quick starts. `topic` matches an option on the Contact page's property form. */
 export const PROPERTY_INTENTS = [
   { label: 'Buy a property', topic: 'Buying property' },
   { label: 'Rent or lease', topic: 'Renting or leasing' },
