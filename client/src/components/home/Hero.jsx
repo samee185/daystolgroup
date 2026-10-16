@@ -8,7 +8,7 @@ import { useIsDesktop } from '../../hooks/useMediaQuery.js'
 const LINES = [
   { text: 'Power & Energy Solutions.', className: 'text-at-power', delay: 0.15 },
   { text: 'Innovative Systems.', className: 'text-at-innovation', delay: 0.3 },
-  { text: 'Properties.', className: 'text-at-property', delay: 0.45 },
+  { text: 'Property.', className: 'text-at-property', delay: 0.45 },
   { text: 'Construction & Infrastructure.', className: 'text-at-construction', delay: 0.6 },
 ]
 
