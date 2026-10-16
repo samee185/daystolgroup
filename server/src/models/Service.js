@@ -1,13 +1,14 @@
 import mongoose from 'mongoose'
 import { slugPlugin } from './plugins/slug.js'
 
-/** The three Daystol companies. Each has its own page, which lists that company's services. */
-export const COMPANIES = ['power', 'innovation', 'property']
+/** The four Daystol companies. Each has its own page, which lists that company's services. */
+export const COMPANIES = ['power', 'innovation', 'property', 'construction']
 
 export const COMPANY_LABELS = [
   { value: 'power', label: 'Daystol Power Services' },
   { value: 'innovation', label: 'Daystol Innovation Systems' },
   { value: 'property', label: 'Daystol Properties' },
+  { value: 'construction', label: 'Daystol Development Concept' },
 ]
 
 const serviceSchema = new mongoose.Schema(

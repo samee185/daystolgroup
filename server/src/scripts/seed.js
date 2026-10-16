@@ -55,13 +55,17 @@ async function main() {
     console.log(`Created categories: ${DEFAULT_CATEGORIES.join(', ')}`)
   }
 
-  // 4. Starter services for the company pages
-  if ((await Service.countDocuments()) === 0) {
-    for (const [order, [company, title, summary]] of DEFAULT_SERVICES.entries()) {
+  // 4. Starter services for the company pages. Only companies with no services yet get them,
+  //    so running the seed again adds a new company's services without touching existing ones.
+  for (const company of [...new Set(DEFAULT_SERVICES.map(([c]) => c))]) {
+    // eslint-disable-next-line no-await-in-loop
+    if (await Service.exists({ company })) continue
+    const list = DEFAULT_SERVICES.filter(([c]) => c === company)
+    for (const [order, [, title, summary]] of list.entries()) {
       // eslint-disable-next-line no-await-in-loop
       await Service.create({ company, title, summary, order })
     }
-    console.log(`Created ${DEFAULT_SERVICES.length} starter services`)
+    console.log(`Created ${list.length} starter services for ${company}`)
   }
 }
 

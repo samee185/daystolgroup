@@ -72,7 +72,39 @@ export const COMPANY_PAGES = {
     ]),
     cta: { title: 'Looking to buy, rent or develop?', text: 'Tell us what you are looking for and our property team will get back to you.', label: 'Make a property enquiry', to: '/contact?type=property' },
   },
+  construction: {
+    company: 'construction',
+    companyName: 'Daystol Development Concept Ltd.',
+    title: 'Construction and contracts',
+    h1: ['Buildings, roads and infrastructure,', 'delivered as one contract.'],
+    intro: 'General contractor for buildings, infrastructure, roads and bridges, boreholes and water supply, schools, networks and other general contracts, for private clients, businesses and government.',
+    primary: { label: 'Make a contract enquiry', to: '/contact?type=contract' },
+    secondary: { label: 'See our projects', to: '/projects?category=construction' },
+    enquiryType: 'contract',
+    pillars: ['Plan', 'Build', 'Hand over'],
+    chips: ['Building construction', 'Roads and bridges', 'Boreholes and water'],
+    heroPhoto: 'constructionHero',
+    servicesTitle: 'From foundations to finished infrastructure',
+    processTitle: 'From site survey to handover',
+    steps: steps([
+      ['Brief and site survey', 'We visit the site and learn what you need to build.'],
+      ['Design, costing and bid', 'Drawings, a bill of quantities and a clear price or tender.'],
+      ['Build and supervise', 'Our engineers and site managers deliver to schedule and standard.'],
+      ['Handover and support', 'Inspection, handover documents and support after completion.'],
+    ]),
+    cta: { title: 'Planning a building, road or infrastructure project?', text: 'Send us the details or the tender documents, and our contracts team will get back to you with a plan and a price.', label: 'Make a contract enquiry', to: '/contact?type=contract' },
+  },
 }
+
+/** Daystol Development Concept: what it builds. `topic` is pre-filled on the Contact page's contract form. */
+export const CONSTRUCTION_SECTORS = [
+  { label: 'Buildings', text: 'Homes, offices, commercial and public buildings', topic: 'Building construction', icon: 'M3 21h18M5 21V5l7-3 7 3v16M9 9h1M14 9h1M9 13h1M14 13h1M10 21v-4h4v4' },
+  { label: 'Roads and bridges', text: 'New roads, rehabilitation, drainage and bridges', topic: 'Roads and bridges', icon: 'M4 21L9 3M20 21L15 3M12 5v2M12 11v2M12 17v2' },
+  { label: 'Boreholes and water', text: 'Drilling, treatment, storage and distribution', topic: 'Boreholes and water supply', icon: 'M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z' },
+  { label: 'Schools and public facilities', text: 'Classrooms, health centres and community buildings', topic: 'Schools and public facilities', icon: 'M2 9l10-5 10 5-10 5zM6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5' },
+  { label: 'Networks and utilities', text: 'Network, power and utility infrastructure', topic: 'Networks and utilities', icon: 'M12 3v4M5 9l2 2M19 9l-2 2M12 21a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM3 21h18' },
+  { label: 'General contracts', text: 'Any other contract, large or small', topic: 'General contract', icon: 'M7 3h8l4 4v14H7zM15 3v4h4M10 12h6M10 16h6' },
+]
 
 /** Daystol Innovation Systems: who the systems are built for */
 export const AUDIENCES = [

@@ -7,7 +7,7 @@ import ShopTeaser from '../components/home/ShopTeaser.jsx'
 import HowWeWork from '../components/home/HowWeWork.jsx'
 import ProjectsSection from '../components/home/ProjectsSection.jsx'
 import { COMPANIES } from '../lib/companies.js'
-import { AUDIENCES, COMPANY_PAGES, PROPERTY_INTENTS } from '../lib/pages.js'
+import { AUDIENCES, COMPANY_PAGES, CONSTRUCTION_SECTORS, PROPERTY_INTENTS } from '../lib/pages.js'
 import { PHOTOS } from '../lib/photos.js'
 import { useCategories, useServices, useSettings, whatsappHref } from '../hooks/useSiteData.js'
 import { usePageMeta } from '../hooks/usePageMeta.js'
@@ -17,6 +17,7 @@ const ACCENT = {
   power: { fill: '#FFE52E', ink: '#0D1330', text: 'text-at-power' },
   innovation: { fill: '#01AFEE', ink: '#0D1330', text: 'text-at-innovation' },
   property: { fill: '#EB268F', ink: '#FFFFFF', text: 'text-at-property' },
+  construction: { fill: '#FF7A1A', ink: '#0D1330', text: 'text-at-construction' },
 }
 
 const Tick = ({ size = 15 }) => (
@@ -26,6 +27,7 @@ const Tick = ({ size = 15 }) => (
 function BadgeIcon({ id }) {
   if (id === 'power') return <svg className="size-6 sm:size-[34px]" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L4 14h7l-1 8 9-12h-7z" /></svg>
   if (id === 'innovation') return <svg className="size-6 sm:size-[34px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="5" y="5" width="14" height="14" rx="3" /><path d="M9.5 9.5h5v5h-5zM9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3" /></svg>
+  if (id === 'construction') return <svg className="size-6 sm:size-[34px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 18h18v3H3zM5 18v-3a7 7 0 0 1 14 0v3M12 8V5M9.5 8.5L8 6M14.5 8.5L16 6" /></svg>
   return <svg className="size-6 sm:size-[34px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6" /></svg>
 }
 
@@ -277,6 +279,34 @@ function IntentBand({ accent }) {
   )
 }
 
+/** Daystol Development Concept: what it builds, each opening the contract form with the topic chosen */
+function SectorBand({ accent }) {
+  return (
+    <section className="mx-auto flex max-w-[1320px] flex-col gap-[30px] px-[18px] pt-[52px] sm:px-7 sm:pt-[88px]">
+      <BandHeading eyebrow={<span className={`eyebrow ${accent.text}`}>What we build</span>} title="Infrastructure for communities, businesses and government" />
+      <ul className="m-0 grid list-none gap-3.5 p-0 sm:grid-cols-2 lg:grid-cols-3">
+        {CONSTRUCTION_SECTORS.map((s, i) => (
+          <li key={s.label} className="reveal" style={{ animationDelay: `${i * 0.05}s` }}>
+            <Link
+              to={`/contact?type=contract&topic=${encodeURIComponent(s.topic)}`}
+              className="lift group flex h-full items-center gap-4 rounded-[22px] border border-line bg-card p-[18px] text-fg hover:text-fg sm:p-[22px]"
+            >
+              <span className="flex size-12 shrink-0 items-center justify-center rounded-2xl transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110" style={{ background: accent.fill, color: accent.ink }} aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d={s.icon} /></svg>
+              </span>
+              <span className="flex min-w-0 flex-1 flex-col gap-0.5">
+                <strong className="text-[16px] leading-snug sm:text-[17px]">{s.label}</strong>
+                <span className="text-sm text-mist">{s.text}</span>
+              </span>
+              <span className={`nudge shrink-0 font-extrabold ${accent.text}`} aria-hidden="true">→</span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )
+}
+
 function CompanyCta({ config, accent }) {
   const { data: s } = useSettings()
   const wa = whatsappHref(s?.whatsappNumber)
@@ -304,7 +334,7 @@ function CompanyCta({ config, accent }) {
   )
 }
 
-/** One template for the three company pages: Power solutions, Innovation systems and Property services. */
+/** One template for the four company pages: Power solutions, Innovation systems, Property services and Construction services. */
 export default function ServicePage({ companyId }) {
   const config = COMPANY_PAGES[companyId]
   const company = COMPANIES.find((c) => c.id === config.company)
@@ -318,6 +348,7 @@ export default function ServicePage({ companyId }) {
       {config.company === 'power' && <ShopBand accent={accent} />}
       {config.company === 'innovation' && <AudienceBand accent={accent} />}
       {config.company === 'property' && <IntentBand accent={accent} />}
+      {config.company === 'construction' && <SectorBand accent={accent} />}
       <HowWeWork
         eyebrow="How it works"
         eyebrowClass={accent.text}

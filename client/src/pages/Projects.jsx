@@ -10,6 +10,7 @@ const FILTERS = [
   { value: 'power', label: 'Power Services' },
   { value: 'innovation', label: 'Innovation Systems' },
   { value: 'property', label: 'Properties' },
+  { value: 'construction', label: 'Development Concept' },
 ]
 
 const monthYear = new Intl.DateTimeFormat('en-NG', { month: 'long', year: 'numeric' })
@@ -56,7 +57,7 @@ export default function Projects() {
   const category = FILTERS.some((t) => t.value === params.get('category')) ? params.get('category') : ''
   // One request for everything, so the filter chips can show counts
   const { data: all, isPending, isError, refetch } = useProjects()
-  usePageMeta('Projects', 'Projects delivered by Daystol Power Services, Daystol Innovation Systems and Daystol Properties.')
+  usePageMeta('Projects', 'Projects delivered by Daystol Power Services, Daystol Innovation Systems, Daystol Properties and Daystol Development Concept.')
 
   const projects = (all || []).filter((p) => !category || p.category === category)
   const featured = projects.find((p) => p.featured)
@@ -66,7 +67,7 @@ export default function Projects() {
   return (
     <>
       <section className="relative overflow-hidden pb-8 pt-9 sm:pt-11">
-        <div className="absolute inset-x-0 top-0 flex h-1.5" aria-hidden="true"><span className="flex-1 bg-spark" /><span className="flex-1 bg-cyan" /><span className="flex-1 bg-magenta" /></div>
+        <div className="absolute inset-x-0 top-0 flex h-1.5" aria-hidden="true"><span className="flex-1 bg-spark" /><span className="flex-1 bg-cyan" /><span className="flex-1 bg-magenta" /><span className="flex-1 bg-orange" /></div>
         <div className="mx-auto flex max-w-[1320px] flex-col gap-[18px] px-4 sm:px-7">
           <nav aria-label="Breadcrumb" className="text-sm text-mist">
             <ol className="m-0 flex list-none gap-2 p-0">
@@ -77,10 +78,10 @@ export default function Projects() {
           </nav>
           <h1 className="m-0 font-display text-[27px] font-extrabold leading-[1.1] tracking-[-0.02em] sm:text-[clamp(30px,3.8vw,52px)]">
             <span className="rise-line"><span style={{ animationDelay: '.1s' }}>Work we've delivered,</span></span>
-            <span className="rise-line"><span className="text-at-innovation" style={{ animationDelay: '.25s' }}>across three companies.</span></span>
+            <span className="rise-line"><span className="text-at-innovation" style={{ animationDelay: '.25s' }}>across four companies.</span></span>
           </h1>
           <p className="fade-up m-0 max-w-[58ch] text-base leading-relaxed text-mist sm:text-[17px]" style={{ animationDelay: '.4s' }}>
-            Power installations, automation and security systems, and property projects by Daystol Power Services, Daystol Innovation Systems and Daystol Properties.
+            Power installations, automation and security systems, property projects and construction works by Daystol Power Services, Daystol Innovation Systems, Daystol Properties and Daystol Development Concept.
           </p>
           <div className="fade-up -mx-4 flex gap-2 overflow-x-auto px-4 pb-0.5 pt-1.5 sm:mx-0 sm:px-0" role="group" aria-label="Filter projects" style={{ animationDelay: '.5s', scrollbarWidth: 'none' }}>
             {FILTERS.map((f) => {

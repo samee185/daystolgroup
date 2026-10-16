@@ -45,6 +45,7 @@ export default function SiteFooter() {
         <span className="flex-1 bg-cyan" />
         <span className="flex-1 bg-magenta" />
         <span className="flex-1 bg-spark" />
+        <span className="flex-1 bg-orange" />
       </div>
     </footer>
   )

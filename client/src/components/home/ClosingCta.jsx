@@ -1,7 +1,7 @@
 import { Link } from 'react-router'
 import { telHref, useSettings, whatsappHref } from '../../hooks/useSiteData.js'
 
-/** Closing call to action: three cables (one per company) flowing into the group logo. */
+/** Closing call to action: four cables (one per company) flowing into the group logo. */
 export default function ClosingCta() {
   const { data: s } = useSettings()
   const wa = whatsappHref(s?.whatsappNumber)
@@ -14,6 +14,7 @@ export default function ClosingCta() {
           <path className="flowline" d="M-20 80 C 300 80, 600 160, 1010 200" fill="none" stroke="#FFE52E" strokeWidth="2.5" />
           <path className="flowline" d="M-20 200 C 300 200, 600 200, 1010 200" fill="none" stroke="#01AFEE" strokeWidth="2.5" style={{ animationDelay: '-1s' }} />
           <path className="flowline" d="M-20 320 C 300 320, 600 240, 1010 200" fill="none" stroke="#EB268F" strokeWidth="2.5" style={{ animationDelay: '-2s' }} />
+          <path className="flowline" d="M-20 390 C 300 390, 640 280, 1010 200" fill="none" stroke="#FF7A1A" strokeWidth="2.5" style={{ animationDelay: '-3s' }} />
         </svg>
         <div className="relative grid items-center gap-10 lg:grid-cols-[1fr_auto]">
           <div className="flex max-w-[640px] flex-col gap-5">
@@ -25,6 +26,7 @@ export default function ClosingCta() {
               <Link to="/contact?type=quote" className="shine press rounded-full bg-spark px-6 py-3.5 text-center font-bold text-midnight hover:text-midnight">Quote for power</Link>
               <Link to="/contact?type=consultation" className="press rounded-full bg-cyan px-6 py-3.5 text-center font-bold text-midnight hover:text-midnight">Book a consultation</Link>
               <Link to="/contact?type=property" className="press rounded-full bg-magenta px-6 py-3.5 text-center font-bold text-white hover:text-white">Property enquiry</Link>
+              <Link to="/contact?type=contract" className="press rounded-full bg-orange px-6 py-3.5 text-center font-bold text-midnight hover:text-midnight">Contract enquiry</Link>
             </div>
             {(wa || tel) && (
               <div className="flex flex-wrap gap-x-6 gap-y-2 text-[15px] font-semibold">

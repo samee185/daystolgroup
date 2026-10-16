@@ -4,15 +4,17 @@
  * Landscape JPGs around 1600px wide (under 500 KB) work best.
  */
 export const PHOTOS = {
-  // Home page: hero collage and the three company cards
+  // Home page: hero collage and the four company cards
   power: { src: '/images/power.jpg', label: 'Photo: generator or solar installation' },
   innovation: { src: '/images/innovation.jpg', label: 'Photo: smart home, CCTV or control panel' },
   property: { src: '/images/property.jpg', label: 'Photo: modern building or estate' },
+  construction: { src: '/images/construction.jpg', label: 'Photo: construction site, road or bridge' },
 
   // Company page heroes
   powerHero: { src: '/images/power-hero.jpg', label: 'Photo: generator room or solar roof' },
   innovationHero: { src: '/images/innovation-hero.jpg', label: 'Photo: smart panel, CCTV or server rack' },
   propertyHero: { src: '/images/property-hero.jpg', label: 'Photo: apartment or estate exterior' },
+  constructionHero: { src: '/images/construction-hero.jpg', label: 'Photo: building site, crane or road works' },
 
   // Shop categories (used when a category has no image in the admin)
   generators: { src: '/images/shop-generators.jpg', label: 'Photo: diesel generator' },

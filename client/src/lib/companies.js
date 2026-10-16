@@ -1,4 +1,4 @@
-/** The three Daystol companies. Colours come from the logo: yellow, cyan, magenta. */
+/** The four Daystol companies. The first three colours come from the logo (yellow, cyan, magenta); construction is orange. */
 export const COMPANIES = [
   {
     id: 'power',
@@ -48,6 +48,22 @@ export const COMPANIES = [
     buttonBg: '#FFFFFF',
     buttonFg: '#0D1330',
   },
+  {
+    id: 'construction',
+    company: 'Daystol Development Concept',
+    legalName: 'Daystol Development Concept Ltd.',
+    title: 'Built to last.',
+    text: 'General contractor: buildings, infrastructure, roads and bridges, boreholes and water supply, schools, networks and other general contracts.',
+    cta: 'Construction and contracts',
+    to: '/construction-services',
+    bg: '#FF7A1A',
+    fg: '#0D1330',
+    tint: '#E5680C',
+    tintText: '#3D1A00',
+    glow: '#FF7A1A',
+    buttonBg: '#0D1330',
+    buttonFg: '#FFFFFF',
+  },
 ]
 
 /** Projects are grouped by the company that delivered them. */
@@ -55,16 +71,18 @@ export const PROJECT_TAG = {
   power: { label: 'Power Services', bg: '#FFE52E', fg: '#0D1330', enquiry: 'quote' },
   innovation: { label: 'Innovation Systems', bg: '#01AFEE', fg: '#0D1330', enquiry: 'consultation' },
   property: { label: 'Properties', bg: '#EB268F', fg: '#FFFFFF', enquiry: 'property' },
+  construction: { label: 'Development Concept', bg: '#FF7A1A', fg: '#0D1330', enquiry: 'contract' },
 }
 
 export const GROUP_SUMMARY =
-  'Daystol Group Ltd. is the parent company of Daystol Power Services, Daystol Innovation Systems and Daystol Properties.'
+  'Daystol Group Ltd. is the parent company of Daystol Power Services, Daystol Innovation Systems, Daystol Properties and Daystol Development Concept.'
 
 export const NAV = [
   { to: '/', label: 'Home', end: true },
   { to: '/power-solutions', label: 'Power solutions' },
   { to: '/innovation-systems', label: 'Innovation systems' },
   { to: '/property-services', label: 'Properties' },
+  { to: '/construction-services', label: 'Construction' },
   { to: '/shop', label: 'Shop' },
   { to: '/projects', label: 'Projects' },
   { to: '/support', label: 'Support and maintenance' },

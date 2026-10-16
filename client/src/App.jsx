@@ -26,6 +26,7 @@ export default function App() {
         <Route path="power-solutions" element={<ServicePage key="power" companyId="power" />} />
         <Route path="innovation-systems" element={<ServicePage key="innovation" companyId="innovation" />} />
         <Route path="property-services" element={<ServicePage key="property" companyId="property" />} />
+        <Route path="construction-services" element={<ServicePage key="construction" companyId="construction" />} />
         {/* Older addresses, in case anyone saved them */}
         <Route path="electrical-automation" element={<Navigate to="/power-solutions" replace />} />
         <Route path="ict-services" element={<Navigate to="/innovation-systems" replace />} />

@@ -9,6 +9,7 @@ const ICON = {
   bolt: 'M13 2L4 14h7l-1 8 9-12h-7z',
   chip: 'M6 6h12v12H6zM10 10h4v4h-4zM9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4',
   home: 'M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6',
+  helmet: 'M3 18h18v3H3zM5 18v-3a7 7 0 0 1 14 0v3M12 8V5M9.5 8.5L8 6M14.5 8.5L16 6',
   house: 'M3 11l9-7 9 7M5 10v10h14V10',
   cart: 'M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.5L21 8H6.2',
   grid: 'M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z',
@@ -17,11 +18,12 @@ const ICON = {
   chat: 'M4 5h16v11H8l-4 4z',
 }
 
-// The three companies, grouped under "Companies" on laptops and shown as big cards in the phone menu
+// The four companies, grouped under "Companies" on laptops and shown as big cards in the phone menu
 const COMPANY_LINKS = [
   { to: '/power-solutions', label: 'Power solutions', company: 'Daystol Power Services', text: 'Generators, solar and stabilizers', bg: '#FFE52E', fg: '#0D1330', icon: ICON.bolt },
   { to: '/innovation-systems', label: 'Innovation systems', company: 'Daystol Innovation Systems', text: 'Automation, CCTV, ICT and software', bg: '#01AFEE', fg: '#0D1330', icon: ICON.chip },
   { to: '/property-services', label: 'Properties', company: 'Daystol Properties', text: 'Development, leasing and short-lets', bg: '#EB268F', fg: '#FFFFFF', icon: ICON.home },
+  { to: '/construction-services', label: 'Construction', company: 'Daystol Development Concept', text: 'Buildings, roads, boreholes and contracts', bg: '#FF7A1A', fg: '#0D1330', icon: ICON.helmet },
 ]
 
 const PAGE_LINKS = [
@@ -118,7 +120,7 @@ function CompaniesMenu() {
               </Link>
             ))}
             <div className="mx-3 mb-1 mt-1.5 flex h-1 overflow-hidden rounded-full" aria-hidden="true">
-              <span className="flex-1 bg-spark" /><span className="flex-1 bg-cyan" /><span className="flex-1 bg-magenta" />
+              <span className="flex-1 bg-spark" /><span className="flex-1 bg-cyan" /><span className="flex-1 bg-magenta" /><span className="flex-1 bg-orange" />
             </div>
           </div>
         </div>
@@ -128,7 +130,7 @@ function CompaniesMenu() {
 }
 
 /**
- * Phone and tablet menu: the three companies as big colour cards, the other pages as tiles,
+ * Phone and tablet menu: the four companies as big colour cards, the other pages as tiles,
  * and the emergency line and quote buttons at the bottom. Rendered at the end of <body> (a portal).
  */
 function MobileMenu({ onClose, settings }) {
@@ -221,7 +223,7 @@ function MobileMenu({ onClose, settings }) {
         </section>
 
         <section className="flex flex-col gap-2.5" aria-labelledby="menu-pages">
-          <span id="menu-pages" className="fade-up eyebrow text-mist" style={stagger(4)}>Explore</span>
+          <span id="menu-pages" className="fade-up eyebrow text-mist" style={stagger(5)}>Explore</span>
           <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3">
             {PAGE_LINKS.map((p, i) => (
               <NavLink
@@ -230,7 +232,7 @@ function MobileMenu({ onClose, settings }) {
                 end={p.end}
                 onClick={onClose}
                 className={({ isActive }) => `fade-up press relative flex min-h-[92px] flex-col justify-between gap-3 rounded-[20px] border p-3.5 backdrop-blur ${isActive ? 'border-fg bg-fg text-bg' : 'border-line bg-glass text-fg hover:border-cyan hover:text-fg'}`}
-                style={stagger(i + 5)}
+                style={stagger(i + 6)}
               >
                 {({ isActive }) => (
                   <>
@@ -251,7 +253,7 @@ function MobileMenu({ onClose, settings }) {
         </section>
       </nav>
 
-      <div className="fade-up relative flex flex-col gap-2.5 border-t border-line bg-glass px-4 pb-7 pt-4 backdrop-blur-xl sm:px-7" style={stagger(11)}>
+      <div className="fade-up relative flex flex-col gap-2.5 border-t border-line bg-glass px-4 pb-7 pt-4 backdrop-blur-xl sm:px-7" style={stagger(12)}>
         {emergency && (
           <a href={emergency} className="press flex items-center gap-3 rounded-[20px] bg-midnight p-3.5 text-white hover:text-white">
             <span className="relative flex size-11 shrink-0 items-center justify-center rounded-2xl bg-spark text-midnight">
@@ -325,7 +327,7 @@ export default function SiteHeader() {
           <img src="/brand/daystol-logo.png" alt="Daystol Group Ltd" className="logo-on h-10 w-auto sm:h-[46px]" width="128" height="59" />
         </Link>
 
-        {/* Laptops and up: links in the header, with the three companies grouped */}
+        {/* Laptops and up: links in the header, with the four companies grouped */}
         <nav aria-label="Main" className="hidden flex-1 items-center justify-center gap-x-5 text-sm font-medium lg:flex xl:gap-x-7 xl:text-[15px]">
           <DesktopLink item={PAGE_LINKS[0]} />
           <CompaniesMenu />

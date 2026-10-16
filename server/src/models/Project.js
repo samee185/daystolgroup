@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 import { slugPlugin } from './plugins/slug.js'
 
 // Projects are grouped by the Daystol company that delivered them
-export const PROJECT_CATEGORIES = ['power', 'innovation', 'property']
+export const PROJECT_CATEGORIES = ['power', 'innovation', 'property', 'construction']
 
 const projectSchema = new mongoose.Schema(
   {

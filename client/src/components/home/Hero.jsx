@@ -9,6 +9,7 @@ const LINES = [
   { text: 'Power & Energy Solutions.', className: 'text-at-power', delay: 0.15 },
   { text: 'Innovative Systems.', className: 'text-at-innovation', delay: 0.3 },
   { text: 'Properties.', className: 'text-at-property', delay: 0.45 },
+  { text: 'Construction & Infrastructure.', className: 'text-at-construction', delay: 0.6 },
 ]
 
 const Check = () => (
@@ -31,38 +32,39 @@ export default function Hero() {
 
   return (
     <section className="relative overflow-hidden pt-10 sm:pt-16">
-      {/* Three power lines flowing across the background, one per company */}
+      {/* Power lines flowing across the background, one per company */}
       <svg aria-hidden="true" viewBox="0 0 1440 700" preserveAspectRatio="none" className="pointer-events-none absolute inset-0 h-full w-full opacity-50">
         <path className="flowline" d="M-40 560 C 300 520, 420 260, 760 300 S 1200 120, 1500 160" fill="none" stroke="#FFE52E" strokeWidth="2" />
         <path className="flowline" d="M-40 620 C 340 600, 520 380, 820 400 S 1220 260, 1500 280" fill="none" stroke="#01AFEE" strokeWidth="2" style={{ animationDelay: '-1s' }} />
         <path className="flowline" d="M-40 680 C 380 680, 600 500, 880 500 S 1240 400, 1500 410" fill="none" stroke="#EB268F" strokeWidth="2" style={{ animationDelay: '-2s' }} />
+        <path className="flowline" d="M-40 740 C 420 740, 660 600, 940 590 S 1260 520, 1500 530" fill="none" stroke="#FF7A1A" strokeWidth="2" style={{ animationDelay: '-3s' }} />
       </svg>
 
       <div className="relative mx-auto grid max-w-[1320px] items-center gap-12 px-5 sm:px-7 lg:grid-cols-[1.08fr_.92fr] lg:gap-14">
         <div className="flex flex-col gap-6">
           <span className="fade-up flex items-center gap-2.5 self-start rounded-full border border-line bg-card py-2 pl-2 pr-3.5 text-sm font-semibold text-mist">
             <span className="flex gap-1" aria-hidden="true">
-              <span className="size-2.5 rounded-full bg-spark" /><span className="size-2.5 rounded-full bg-cyan" /><span className="size-2.5 rounded-full bg-magenta" />
+              <span className="size-2.5 rounded-full bg-spark" /><span className="size-2.5 rounded-full bg-cyan" /><span className="size-2.5 rounded-full bg-magenta" /><span className="size-2.5 rounded-full bg-orange" />
             </span>
             Daystol Group Ltd. · RC 9511880
           </span>
 
-          <h1 className="m-0 font-display text-[clamp(30px,4.4vw,62px)] font-extrabold leading-[1.06] tracking-[-0.02em]">
+          <h1 className="m-0 font-display text-[clamp(26px,3.8vw,54px)] font-extrabold leading-[1.06] tracking-[-0.02em]">
             {LINES.map((l) => (
               <span key={l.text} className="rise-line"><span className={l.className} style={{ animationDelay: `${l.delay}s` }}>{l.text}</span></span>
             ))}
             <span className="rise-line pt-[.1em]">
-              <span className="relative" style={{ animationDelay: '.6s' }}>
+              <span className="relative" style={{ animationDelay: '.75s' }}>
                 One Daystol.
-                <span className="grow-x absolute inset-x-0 -bottom-[.04em] flex h-[.11em]" style={{ animationDelay: '1.3s' }} aria-hidden="true">
-                  <span className="flex-1 bg-spark" /><span className="flex-1 bg-cyan" /><span className="flex-1 bg-magenta" />
+                <span className="grow-x absolute inset-x-0 -bottom-[.04em] flex h-[.11em]" style={{ animationDelay: '1.45s' }} aria-hidden="true">
+                  <span className="flex-1 bg-spark" /><span className="flex-1 bg-cyan" /><span className="flex-1 bg-magenta" /><span className="flex-1 bg-orange" />
                 </span>
               </span>
             </span>
           </h1>
 
           <p className="fade-up m-0 max-w-[54ch] text-base leading-relaxed text-mist sm:text-lg" style={{ animationDelay: '.8s' }}>
-            The parent company of <strong className="text-fg">Daystol Power Services</strong>, <strong className="text-fg">Daystol Innovation Systems</strong> and <strong className="text-fg">Daystol Properties</strong>: generators, solar and stabilizers; automation, surveillance and ICT; property development, leasing and facility management. One team to call.
+            The parent company of <strong className="text-fg">Daystol Power Services</strong>, <strong className="text-fg">Daystol Innovation Systems</strong>, <strong className="text-fg">Daystol Properties</strong> and <strong className="text-fg">Daystol Development Concept</strong>: generators, solar and stabilizers; automation, surveillance and ICT; property development and leasing; buildings, roads and general contracts. One team to call.
           </p>
 
           <div className="fade-up flex flex-col gap-3 sm:flex-row sm:flex-wrap" style={{ animationDelay: '1s' }}>
@@ -85,13 +87,14 @@ export default function Hero() {
 
         {/* One photo per company, with the group logo in the middle */}
         <div className="fade-up relative" style={{ animationDelay: '.5s' }}>
-          <div className="grid grid-cols-[1.1fr_1fr] grid-rows-[150px_150px] gap-3.5 sm:grid-rows-[200px_200px]">
-            <CollageTile to="/power-solutions" photo={PHOTOS.power} tag="Power Services" tagClass="bg-spark text-midnight" className="row-span-2" />
+          <div className="grid grid-cols-2 grid-rows-[150px_150px] gap-3.5 sm:grid-rows-[200px_200px]">
+            <CollageTile to="/power-solutions" photo={PHOTOS.power} tag="Power Services" tagClass="bg-spark text-midnight" />
             <CollageTile to="/innovation-systems" photo={PHOTOS.innovation} tag="Innovation Systems" tagClass="bg-cyan text-midnight" />
             <CollageTile to="/property-services" photo={PHOTOS.property} tag="Properties" tagClass="bg-magenta text-white" />
+            <CollageTile to="/construction-services" photo={PHOTOS.construction} tag="Development Concept" tagClass="bg-orange text-midnight" />
           </div>
 
-          <div className="bob pointer-events-none absolute left-[52%] top-1/2 size-[104px] -translate-x-1/2 -translate-y-1/2 sm:size-[132px]" aria-hidden="true">
+          <div className="bob pointer-events-none absolute left-1/2 top-1/2 size-[104px] -translate-x-1/2 -translate-y-1/2 sm:size-[132px]" aria-hidden="true">
             <svg className="spin-slow absolute inset-0" viewBox="0 0 132 132">
               <circle cx="66" cy="66" r="62" fill="none" stroke="#FFE52E" strokeWidth="3" strokeDasharray="64 130" strokeLinecap="round" />
               <circle cx="66" cy="66" r="62" fill="none" stroke="#01AFEE" strokeWidth="3" strokeDasharray="64 130" strokeDashoffset="-130" strokeLinecap="round" />

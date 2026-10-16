@@ -1,12 +1,14 @@
 const Y = '#FFE52E'
 const C = '#01AFEE'
 const M = '#EB268F'
+const O = '#FF7A1A'
 
-// Every service from the three companies
+// Every service from the four companies
 const ITEMS = [
   ['Diesel generators', Y], ['Solar power systems', Y], ['Servo stabilizers', Y], ['Electrical installations', Y], ['Mechanical engineering', Y],
   ['Power automation', C], ['Home automation', C], ['Surveillance systems', C], ['ICT installations', C], ['Software engineering', C], ['Web solutions', C],
   ['Property development', M], ['Sales and leasing', M], ['Facility management', M], ['Short-lets', M], ['Real-estate consultancy', M],
+  ['Building construction', O], ['Roads and bridges', O], ['Boreholes', O], ['Schools and public works', O], ['General contracts', O],
 ]
 
 /** Scrolling strip of services. Pauses on hover; the list is doubled so it loops seamlessly. */

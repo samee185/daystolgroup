@@ -31,4 +31,13 @@ export const DEFAULT_SERVICES = [
   ['property', 'Facility management', 'Day-to-day running and maintenance of buildings and estates.'],
   ['property', 'Short-let apartments', 'Furnished apartments for short stays.'],
   ['property', 'Real-estate consultancy', 'Advice on buying, developing and managing property.'],
+
+  // Daystol Development Concept (general contractor)
+  ['construction', 'Building construction', 'Residential, commercial and public buildings, from foundations to finishing.'],
+  ['construction', 'Infrastructure', 'Infrastructure projects for communities, estates, businesses and government.'],
+  ['construction', 'Roads and bridges', 'Construction and rehabilitation of roads, drainage and bridges.'],
+  ['construction', 'Boreholes and water supply', 'Borehole drilling, water treatment and distribution systems.'],
+  ['construction', 'Schools and public facilities', 'Classrooms, health centres and other public buildings.'],
+  ['construction', 'Networks and utilities', 'Network, power and utility infrastructure for sites and estates.'],
+  ['construction', 'General contracts', 'Project management and delivery of general contracts, large or small.'],
 ]

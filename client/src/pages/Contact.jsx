@@ -17,6 +17,7 @@ const ICON = {
   chip: 'M6 6h12v12H6zM10 10h4v4h-4zM9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4',
   home: 'M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6',
   cal: 'M4 5h16v16H4zM4 10h16M9 3v4M15 3v4M9 15l2 2 4-4',
+  helmet: 'M3 18h18v3H3zM5 18v-3a7 7 0 0 1 14 0v3M12 8V5M9.5 8.5L8 6M14.5 8.5L16 6',
 }
 
 // Each type goes to the Daystol company that handles it
@@ -25,6 +26,7 @@ const TYPES = [
   { value: 'quote', label: 'Request a quote', who: 'Power Services', color: '#FFE52E', ink: '#0D1330', icon: ICON.bolt, hint: 'What do you want to power, and where?' },
   { value: 'consultation', label: 'Consultation', who: 'Innovation Systems', color: '#01AFEE', ink: '#0D1330', icon: ICON.chip, hint: 'What would you like to automate, secure or build?' },
   { value: 'property', label: 'Property enquiry', who: 'Properties', color: '#EB268F', ink: '#FFFFFF', icon: ICON.home, hint: 'Location, budget and anything else we should know' },
+  { value: 'contract', label: 'Contract enquiry', who: 'Development Concept', color: '#FF7A1A', ink: '#0D1330', icon: ICON.helmet, hint: 'What do you need built, where, and by when?' },
   { value: 'pmc', label: 'Maintenance contract', who: 'Support team', color: '#FFE52E', ink: '#0D1330', icon: ICON.cal, hint: 'What equipment do you have, and where is it?' },
 ]
 
@@ -43,6 +45,7 @@ const COMPANIES = [
   { name: 'Daystol Power Services', text: 'Generators, solar and stabilizers; electrical installations; power solution management and mechanical engineering.', color: '#FFE52E', ink: '#0D1330', cta: 'Request a quote', type: 'quote' },
   { name: 'Daystol Innovation Systems', text: 'Electrical design, power and home automation, surveillance, ICT, software and web solutions.', color: '#01AFEE', ink: '#0D1330', cta: 'Book a consultation', type: 'consultation' },
   { name: 'Daystol Properties', text: 'Property development, sales and leasing, facility management, short-lets and real-estate consultancy.', color: '#EB268F', ink: '#FFFFFF', cta: 'Make a property enquiry', type: 'property' },
+  { name: 'Daystol Development Concept', text: 'General contracts: buildings, infrastructure, roads and bridges, boreholes and water supply, schools and networks.', color: '#FF7A1A', ink: '#0D1330', cta: 'Make a contract enquiry', type: 'contract' },
 ]
 
 const EMPTY = { name: '', phone: '', email: '', organisation: '', topic: '', message: '', preferredContact: 'call', website: '' }
@@ -56,7 +59,7 @@ const Icon = ({ d, size = 18 }) => (
 /** Keep a topic chosen on another page selectable, even when it isn't one of the usual options. */
 const withTopic = (options, topic) => (topic && !options.some((o) => o.value === topic) ? [{ value: topic, label: topic }, ...options] : options)
 
-/** The five enquiry types as large radio cards. */
+/** The enquiry types as large radio cards. */
 function TypePicker({ value, onChange }) {
   const { isDark } = useTheme()
   const onKey = (e) => {
@@ -71,7 +74,7 @@ function TypePicker({ value, onChange }) {
   return (
     <fieldset className="m-0 border-0 p-0">
       <legend className="mb-3.5 p-0 text-base font-bold">What can we help with?</legend>
-      <div className="grid gap-3 sm:grid-cols-3 xl:grid-cols-5" role="radiogroup" aria-label="What can we help with?" onKeyDown={onKey}>
+      <div className="grid gap-3 sm:grid-cols-3" role="radiogroup" aria-label="What can we help with?" onKeyDown={onKey}>
         {TYPES.map((t) => {
           const on = t.value === value
           // "General" uses the page's own text colour as its fill
@@ -215,7 +218,7 @@ export default function Contact() {
   const [errors, setErrors] = useState({})
   const [startedAt] = useState(() => Date.now())
 
-  usePageMeta('Contact us', 'Contact Daystol Group for quotes, consultations, property enquiries and maintenance contracts.')
+  usePageMeta('Contact us', 'Contact Daystol Group for quotes, consultations, property enquiries, construction contracts and maintenance contracts.')
 
   const { data: product } = useProduct(type === 'quote' ? productSlug : '')
   const { data: project } = useProject(projectSlug)
@@ -311,7 +314,7 @@ export default function Contact() {
   return (
     <>
       <section className="relative overflow-hidden pb-10 pt-9 sm:pt-11">
-        <div className="absolute inset-x-0 top-0 flex h-1.5" aria-hidden="true"><span className="flex-1 bg-spark" /><span className="flex-1 bg-cyan" /><span className="flex-1 bg-magenta" /></div>
+        <div className="absolute inset-x-0 top-0 flex h-1.5" aria-hidden="true"><span className="flex-1 bg-spark" /><span className="flex-1 bg-cyan" /><span className="flex-1 bg-magenta" /><span className="flex-1 bg-orange" /></div>
         <div className="mx-auto flex max-w-[1320px] flex-col gap-[18px] px-4 sm:px-7">
           <nav aria-label="Breadcrumb" className="text-sm text-mist">
             <ol className="m-0 flex list-none gap-2 p-0">
@@ -325,7 +328,7 @@ export default function Contact() {
             <span className="rise-line"><span className="text-at-property" style={{ animationDelay: '.25s' }}>Daystol team.</span></span>
           </h1>
           <p className="fade-up m-0 max-w-[58ch] text-base leading-relaxed text-mist sm:text-[17px]" style={{ animationDelay: '.4s' }}>
-            Pick what you need below and we'll send it straight to the company that handles it: power, systems or property.
+            Pick what you need below and we'll send it straight to the company that handles it: power, systems, property or construction.
           </p>
         </div>
       </section>
@@ -367,6 +370,9 @@ export default function Contact() {
                   {type === 'property' && (
                     <Select label="What are you interested in?" name="topic" value={form.topic} onChange={set('topic')} options={propertyOptions} placeholder="Choose one" error={errors.topic} />
                   )}
+                  {type === 'contract' && (
+                    <TextInput label="Type of project" optional name="topic" value={form.topic} onChange={set('topic')} help="For example: a two-storey office building, a borehole, or a road" maxLength={160} />
+                  )}
                   {type === 'pmc' && (
                     <Select label="Maintenance package" optional name="topic" value={form.topic} onChange={set('topic')} options={packageOptions} placeholder="Choose a package" help={<>Compare the packages on the <Link to="/support#maintenance" className="underline">Support and maintenance</Link> page.</>} />
                   )}
@@ -399,7 +405,7 @@ export default function Contact() {
       <section className="border-t border-line bg-bg2 py-12 sm:pb-[88px] sm:pt-[72px]">
         <div className="mx-auto flex max-w-[1320px] flex-col gap-7 px-4 sm:px-7">
           <h2 className="reveal m-0 font-display text-[22px] font-extrabold leading-[1.15] tracking-[-0.02em] sm:text-[clamp(24px,2.6vw,34px)]">Not sure who to ask? Here's who does what.</h2>
-          <div className="grid gap-5 lg:grid-cols-3">
+          <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
             {COMPANIES.map((c, i) => (
               <div key={c.name} className="reveal lift flex flex-col overflow-hidden rounded-[22px] border border-line bg-card sm:rounded-[26px]" style={{ animationDelay: `${i * 0.08}s` }}>
                 <div className="h-1.5" style={{ background: c.color }} aria-hidden="true" />

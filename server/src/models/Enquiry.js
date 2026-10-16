@@ -5,6 +5,7 @@ export const ENQUIRY_TYPES = [
   { value: 'quote', label: 'Quote request' },
   { value: 'consultation', label: 'Consultation (Innovation Systems)' },
   { value: 'property', label: 'Property enquiry' },
+  { value: 'contract', label: 'Contract enquiry (Development Concept)' },
   { value: 'pmc', label: 'Maintenance contract' },
 ]
 

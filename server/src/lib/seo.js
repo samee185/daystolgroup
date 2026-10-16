@@ -4,11 +4,11 @@ import { imageFor } from './images.js'
 import { clip, SITE_NAME } from './seo-html.js'
 
 const GROUP_DESCRIPTION =
-  'Daystol Group Ltd. is the parent company of Daystol Power Services, Daystol Innovation Systems and Daystol Properties: power solutions, electrical and ICT systems, and property services in Nigeria.'
+  'Daystol Group Ltd. is the parent company of Daystol Power Services, Daystol Innovation Systems, Daystol Properties and Daystol Development Concept: power solutions, electrical and ICT systems, property services, and construction and general contracts in Nigeria.'
 
 /** Every page the React app has. `index: false` keeps private pages out of search results. */
 export const STATIC_PAGES = {
-  '/': { fullTitle: `${SITE_NAME} | Power, Systems, Property`, description: GROUP_DESCRIPTION, priority: '1.0' },
+  '/': { fullTitle: `${SITE_NAME} | Power, Systems, Property, Construction`, description: GROUP_DESCRIPTION, priority: '1.0' },
   '/power-solutions': {
     title: 'Power solutions | Daystol Power Services',
     description: 'Power solution management, electrical installations and mechanical engineering, plus sales, installation and maintenance of diesel generators, solar power systems and servo central industrial stabilizers.',
@@ -24,19 +24,24 @@ export const STATIC_PAGES = {
     description: 'Property development, sales and leasing, facility management, short-let apartments and real-estate consultancy.',
     priority: '0.9',
   },
+  '/construction-services': {
+    title: 'Construction and general contracts | Daystol Development Concept',
+    description: 'General contractor for buildings, infrastructure, roads and bridges, boreholes and water supply, schools, networks and other general contracts.',
+    priority: '0.9',
+  },
   '/shop': {
     title: 'Shop',
     description: 'Buy diesel generators, solar power systems and servo stabilizers from Daystol Power Services, with installation and maintenance.',
     priority: '0.9',
   },
-  '/projects': { title: 'Projects', description: 'Projects delivered by Daystol Power Services, Daystol Innovation Systems and Daystol Properties.', priority: '0.7' },
+  '/projects': { title: 'Projects', description: 'Projects delivered by Daystol Power Services, Daystol Innovation Systems, Daystol Properties and Daystol Development Concept.', priority: '0.7' },
   '/support': {
     title: 'Support and maintenance',
     description: 'Report a fault with your generator, solar power system, stabilizer, electrical or automation system, or ask about a maintenance contract.',
     priority: '0.8',
   },
-  '/about': { title: 'About us', description: 'Daystol Group Ltd. (RC 9511880) is the parent company of Daystol Power Services, Daystol Innovation Systems and Daystol Properties.', priority: '0.6' },
-  '/contact': { title: 'Contact us', description: 'Contact Daystol Group for quotes, consultations, property enquiries and maintenance contracts.', priority: '0.7' },
+  '/about': { title: 'About us', description: 'Daystol Group Ltd. (RC 9511880) is the parent company of Daystol Power Services, Daystol Innovation Systems, Daystol Properties and Daystol Development Concept.', priority: '0.6' },
+  '/contact': { title: 'Contact us', description: 'Contact Daystol Group for quotes, consultations, property and contract enquiries, and maintenance contracts.', priority: '0.7' },
   '/privacy': { title: 'Privacy policy', description: 'How Daystol Group Ltd. collects, uses and protects your personal data under the Nigeria Data Protection Act 2023.', priority: '0.2' },
   '/terms': { title: 'Terms of sale', description: 'Terms for buying from the Daystol Group online shop.', priority: '0.2' },
   '/returns': { title: 'Returns and refunds', description: 'How returns, cancellations and refunds work for orders from the Daystol Group online shop.', priority: '0.2' },
@@ -76,6 +81,7 @@ async function organisationLd(baseUrl) {
       { '@type': 'Organization', name: 'Daystol Power Services Ltd.', url: `${baseUrl}/power-solutions` },
       { '@type': 'Organization', name: 'Daystol Innovation Systems Ltd.', url: `${baseUrl}/innovation-systems` },
       { '@type': 'Organization', name: 'Daystol Properties Ltd.', url: `${baseUrl}/property-services` },
+      { '@type': 'Organization', name: 'Daystol Development Concept Ltd.', url: `${baseUrl}/construction-services` },
     ],
   }
 }

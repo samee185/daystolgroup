@@ -6,6 +6,7 @@ const ICONS = {
   power: <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z" /></svg>,
   innovation: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="3" /><path d="M9.5 9.5h5v5h-5zM9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3" /></svg>,
   property: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6" /></svg>,
+  construction: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M3 18h18v3H3zM5 18v-3a7 7 0 0 1 14 0v3M12 8V5M9.5 8.5L8 6M14.5 8.5L16 6" /></svg>,
 }
 
 const CARDS = [
@@ -27,6 +28,12 @@ const CARDS = [
     blurb: 'Property development, sales and leasing, facility management, short-let apartments and real-estate consultancy, from first viewing to day-to-day upkeep.',
     chips: ['Development', 'Sales and leasing', 'Facility management', 'Short-lets', 'Consultancy'],
   },
+  {
+    id: 'construction', no: '04', name: 'Development Concept', legal: 'Daystol Development Concept Ltd.', to: '/construction-services', cta: 'Explore construction',
+    color: '#FF7A1A', ink: '#0D1330', text: 'text-at-construction', photo: PHOTOS.construction,
+    blurb: 'General contractor for buildings, infrastructure, roads and bridges, boreholes and water supply, schools, networks and other general contracts.',
+    chips: ['Buildings', 'Roads and bridges', 'Boreholes', 'Schools', 'General contracts'],
+  },
 ]
 
 export default function CompanyCards() {
@@ -35,14 +42,14 @@ export default function CompanyCards() {
       <div className="reveal mb-10 flex flex-wrap items-end justify-between gap-5">
         <div className="flex max-w-[640px] flex-col gap-3">
           <span className="eyebrow text-at-innovation">The Daystol group</span>
-          <h2 className="h-section m-0">Three specialist companies. One team behind them.</h2>
+          <h2 className="h-section m-0">Four specialist companies. One team behind them.</h2>
         </div>
         <p className="m-0 max-w-[46ch] text-base leading-relaxed text-mist sm:text-[17px]">
-          Each company has its own engineers and experts, and they work together when your project needs power, systems and property under one plan.
+          Each company has its own engineers and experts, and they work together when your project needs power, systems, property and construction under one plan.
         </p>
       </div>
 
-      <div className="grid gap-5 lg:grid-cols-3">
+      <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
         {CARDS.map((c, i) => (
           <Link key={c.id} to={c.to} className="reveal lift zoom-host flex flex-col overflow-hidden rounded-[30px] border border-line bg-card text-fg hover:text-fg" style={{ animationDelay: `${i * 0.08}s` }}>
             <div className="relative h-[210px] overflow-hidden sm:h-[230px]">

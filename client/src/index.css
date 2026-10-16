@@ -24,6 +24,7 @@
   --at-power: #FFE52E;
   --at-innovation: #01AFEE;
   --at-property: #F0469E;
+  --at-construction: #FF8A33;
   /* Stock and status colours as text on the page */
   --ok: #3DDC84;
   --low: #FFE52E;
@@ -53,6 +54,7 @@
   --at-power: #8A6D00;
   --at-innovation: #00739F;
   --at-property: #C4136F;
+  --at-construction: #B45309;
   --ok: #157347;
   --low: #8A6A00;
   --bad: #B3261E;
@@ -78,6 +80,7 @@
   --color-at-power: var(--at-power);
   --color-at-innovation: var(--at-innovation);
   --color-at-property: var(--at-property);
+  --color-at-construction: var(--at-construction);
   --color-ok: var(--ok);
   --color-low: var(--low);
   --color-bad: var(--bad);
@@ -91,6 +94,7 @@
   --color-action: #D4157A;
   --color-cyan: #01AFEE;
   --color-spark: #FFE52E;
+  --color-orange: #FF7A1A;
   --color-whatsapp: #1FA855;
   --color-alert: #FF6B6B;
 
