@@ -4,3 +4,4 @@ import('./server.js').catch((err) => {
   console.error('The server failed to start:', err)
   process.exit(1)
 })
+
