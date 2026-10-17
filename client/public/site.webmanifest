@@ -1,0 +1,13 @@
+{
+  "name": "Daystol Group Ltd.",
+  "short_name": "Daystol",
+  "description": "Power, ICT, property and construction services in Lagos, Abuja and across Nigeria.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#0D1330",
+  "theme_color": "#0D1330",
+  "icons": [
+    { "src": "/brand/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/brand/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

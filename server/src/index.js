@@ -99,6 +99,10 @@ if (fs.existsSync(clientDist)) {
   app.use('/assets', express.static(path.join(clientDist, 'assets'), { maxAge: '1y', immutable: true }))
   app.use(express.static(clientDist, { index: false, maxAge: '1h' }))
 
+  // A missing file (anything with an extension, e.g. /logo.png) gets a plain 404, never the web page.
+  // Sending the page instead makes browsers report confusing "MIME type text/html" errors.
+  app.get(/\.[a-z0-9]{2,12}$/i, (req, res) => res.status(404).type('text/plain').send('Not found'))
+
   // Every page gets index.html with its own title, description and share preview filled in.
   app.get('*', asyncHandler(async (req, res) => {
     if (!env.isProd) template = fs.readFileSync(indexFile, 'utf8') // pick up rebuilds while testing locally
