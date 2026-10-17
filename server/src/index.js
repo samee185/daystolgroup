@@ -42,6 +42,12 @@ app.use('/admin/login', loginLimiter)
 app.use('/brand', express.static(brandDir, { maxAge: '7d' }))
 // Browsers and search engines ask for /favicon.ico on their own: answer with the Daystol icon.
 app.get('/favicon.ico', (req, res) => res.set('Cache-Control', 'public, max-age=604800').type('png').sendFile(path.join(brandDir, 'favicon-32.png')))
+// Hostinger adds its own icon links (/favicons/hostinger*.png) to every page. Answer them with the Daystol icon,
+// so the browser shows ours whichever link it picks.
+app.get('/favicons/:name', (req, res) => {
+  const file = req.params.name.includes('apple') ? 'apple-touch-icon.png' : 'favicon-32.png'
+  res.set('Cache-Control', 'public, max-age=604800').type('png').sendFile(path.join(brandDir, file))
+})
 // Styles and the light/dark switch for the admin
 app.use('/admin-ui', express.static(fileURLToPath(new URL('../admin-ui', import.meta.url)), { maxAge: '1h' }))
 
