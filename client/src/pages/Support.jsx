@@ -356,7 +356,7 @@ export default function Support() {
   const emergency = telHref(settings?.emergencyPhone)
   const phone = telHref(settings?.phone)
   const wa = whatsappHref(settings?.whatsappNumber, 'Hello Daystol, I need help with a fault.')
-  usePageMeta('Support and maintenance', 'Report a fault with your generator, solar power system, stabilizer, electrical or automation system, or ask about a maintenance contract.')
+  usePageMeta('Support and maintenance', 'Report a fault with a generator, solar system, stabilizer, electrical or automation system, or ask about a maintenance contract. 24/7 fault line.')
 
   return (
     <>

@@ -69,7 +69,7 @@ export default function Shop() {
     category, q, sort, page, limit: PAGE_SIZE, stock: stock.join(','), sale: sale ? 'true' : '',
   })
 
-  usePageMeta(activeCategory ? `${activeCategory.name} | Shop` : 'Shop', 'Buy diesel generators, solar power systems and servo stabilizers from Daystol Power Services, with installation and maintenance.')
+  usePageMeta(activeCategory ? `${activeCategory.name} | Shop | Daystol Group Ltd.` : 'Shop generators, solar and stabilizers', 'Buy diesel generators, solar power systems and servo stabilizers online from Daystol Power Services, with installation and maintenance across Nigeria.')
 
   // Update URL values; any filter change goes back to page 1
   const update = (changes) => {

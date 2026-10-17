@@ -9,6 +9,7 @@ import bcrypt from 'bcryptjs'
 
 import { connectDB, disconnectDB } from '../db.js'
 import { Category, Service, SiteSettings, User } from '../models/index.js'
+import { STORE_ADDRESS_TEXT } from '../lib/seo.js'
 import { DEFAULT_CATEGORIES, DEFAULT_SERVICES } from './defaults.js'
 
 const { values } = parseArgs({
@@ -42,8 +43,10 @@ async function main() {
 
   // 2. Site settings (a single record, edited in the admin)
   if (!(await SiteSettings.exists({}))) {
-    await SiteSettings.create({})
+    await SiteSettings.create({ address: STORE_ADDRESS_TEXT })
     console.log('Site settings record created. Fill in the contact details in the admin.')
+  } else if ((await SiteSettings.updateOne({ $or: [{ address: { $exists: false } }, { address: '' }] }, { address: STORE_ADDRESS_TEXT })).modifiedCount) {
+    console.log(`Office address set to ${STORE_ADDRESS_TEXT}.`)
   }
 
   // 3. Shop categories

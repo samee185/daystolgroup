@@ -392,6 +392,9 @@ const resources = [
         deliveryNote: { type: 'textarea', description: 'Optional line shown at checkout, e.g. "Delivery within 2 to 5 working days".' },
         aboutHeadline: { description: 'About page, "Who we are" heading. The section appears once this and the story are filled in.' },
         aboutStory: { type: 'richtext', description: 'About page: the group\'s story, in a few short paragraphs.' },
+        googleSiteVerification: { description: 'From Google Search Console: choose "HTML tag" and paste the tag or just its code. Proves to Google that you own the site.' },
+        bingSiteVerification: { description: 'From Bing Webmaster Tools: choose "Meta tag" and paste the tag or just its code.' },
+        socialLinks: { description: 'Your official pages (Facebook, Instagram, LinkedIn, Google Business Profile, Jiji...). Shown in the footer and told to search engines, so they know these pages belong to Daystol.' },
       },
       actions: {
         ...accessFor({ read: ALL_STAFF, write: ['admin'], remove: [] }),

@@ -40,6 +40,8 @@ app.use('/admin/login', loginLimiter)
 
 // Logo for the admin header (also served by Vite in development)
 app.use('/brand', express.static(brandDir, { maxAge: '7d' }))
+// Browsers and search engines ask for /favicon.ico on their own: answer with the Daystol icon.
+app.get('/favicon.ico', (req, res) => res.set('Cache-Control', 'public, max-age=604800').type('png').sendFile(path.join(brandDir, 'favicon-32.png')))
 // Styles and the light/dark switch for the admin
 app.use('/admin-ui', express.static(fileURLToPath(new URL('../admin-ui', import.meta.url)), { maxAge: '1h' }))
 

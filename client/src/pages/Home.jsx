@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { usePageMeta } from '../hooks/usePageMeta.js'
 import Hero from '../components/home/Hero.jsx'
 import Marquee from '../components/home/Marquee.jsx'
 import CompanyCards from '../components/home/CompanyCards.jsx'
@@ -9,9 +9,7 @@ import ProjectsSection from '../components/home/ProjectsSection.jsx'
 import ClosingCta from '../components/home/ClosingCta.jsx'
 
 export default function Home() {
-  useEffect(() => {
-    document.title = 'Daystol Group Ltd. | Power, Systems, Property'
-  }, [])
+  usePageMeta('Daystol Group | Power, ICT, Property and Construction in Nigeria')
 
   return (
     <>

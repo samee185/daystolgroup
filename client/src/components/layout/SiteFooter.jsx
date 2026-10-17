@@ -2,6 +2,10 @@ import { Link } from 'react-router'
 import { telHref, useSettings } from '../../hooks/useSiteData.js'
 import { COMPANIES } from '../../lib/companies.js'
 
+const SOCIAL_LABELS = {
+  facebook: 'Facebook', instagram: 'Instagram', linkedin: 'LinkedIn', x: 'X', youtube: 'YouTube', tiktok: 'TikTok', google: 'Google reviews', jiji: 'Jiji',
+}
+
 export default function SiteFooter() {
   const { data: s } = useSettings()
   const year = new Date().getFullYear()
@@ -15,6 +19,18 @@ export default function SiteFooter() {
           {s?.address && <span className="whitespace-pre-line">{s.address}</span>}
           {s?.phone && <a href={telHref(s.phone)} className="hover:text-fg">{s.phone}</a>}
           {s?.email && <a href={`mailto:${s.email}`} className="hover:text-fg">{s.email}</a>}
+          <span>Serving Lagos, Abuja and clients across Nigeria.</span>
+          {s?.socialLinks?.length > 0 && (
+            <ul className="m-0 mt-1 flex list-none flex-wrap gap-2 p-0" aria-label="Daystol on other sites">
+              {s.socialLinks.map((l) => (
+                <li key={l.url}>
+                  <a href={l.url} target="_blank" rel="me noopener noreferrer" className="inline-flex min-h-[40px] items-center rounded-full border border-line px-3.5 text-sm font-semibold text-fg hover:border-cyan">
+                    {SOCIAL_LABELS[l.platform] || l.platform}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
 
         <div className="flex flex-wrap gap-x-16 gap-y-8">
